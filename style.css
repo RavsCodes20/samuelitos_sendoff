@@ -224,6 +224,17 @@ body {
     margin-bottom: 20px;
     text-align: center;
 }
+/* Links within the main content/newsletter article */
+.container a {
+    color: var(--accent2); /* Darker orange for links to contrast with parchment background */
+    text-decoration: none;
+    transition: text-decoration 0.3s ease, color 0.3s ease;
+}
+.container a:hover {
+    text-decoration: underline;
+    color: var(--accent1); /* Lighter orange on hover */
+}
+
 .footer {
     background-color: var(--dark-bg);
     color: var(--light-text);
