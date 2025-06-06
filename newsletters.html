@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Newsletters Archive</title>
+    <title>Contributors</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
@@ -15,6 +15,8 @@
             --content-bg: #F8F0E3; /* Parchment */
             --accent1: #F39C12; /* Vibrant Orange/Gold for highlights/links */
             --accent2: #D35400; /* Darker Orange/Brown for headings/borders */
+            --dark-red-accent: #C00000; /* Explicit dark red */
+            --dark-red-accent-rgb: 192, 0, 0; /* RGB for transparent dark red */
         }
         body {
             font-family: 'Inter', sans-serif;
@@ -28,7 +30,130 @@
             justify-content: flex-start;
             align-items: center;
             min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
         }
+
+        /* --- Background Elements --- */
+        .moving-bar {
+            position: fixed;
+            height: 8px; /* Thickness of horizontal bars */
+            background-color: rgba(var(--dark-red-accent-rgb), 0.3); /* Dark red, somewhat transparent */
+            z-index: -1;
+            animation: moveBarHorizontal 20s linear infinite alternate; /* 'alternate' for smooth loop */
+        }
+
+        .moving-bar-1 {
+            width: 200vw;
+            top: 15%;
+            left: -50vw;
+            animation-delay: -10s;
+        }
+
+        .moving-bar-2 {
+            width: 200vw;
+            bottom: 20%;
+            left: -50vw;
+            animation-delay: -5s;
+            animation-direction: alternate-reverse;
+        }
+
+        .moving-bar-3 {
+            width: 200vw;
+            top: 45%;
+            left: -50vw;
+            height: 6px;
+            animation-delay: -3.5s;
+            background-color: rgba(var(--dark-red-accent-rgb), 0.2);
+            animation-direction: alternate;
+        }
+
+        .moving-bar-4 {
+            width: 200vw;
+            bottom: 40%;
+            left: -50vw;
+            height: 6px;
+            animation-delay: -8.5s;
+            background-color: rgba(var(--dark-red-accent-rgb), 0.2);
+            animation-direction: alternate-reverse;
+        }
+
+        @keyframes moveBarHorizontal {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(100vw); }
+        }
+
+        .moving-bar-vertical {
+            position: fixed;
+            width: 8px;
+            height: 200vh;
+            background-color: rgba(var(--dark-red-accent-rgb), 0.3);
+            z-index: -1;
+            animation: moveBarVertical 25s linear infinite alternate;
+        }
+
+        .moving-bar-vertical-1 {
+            top: -50vh;
+            left: 5%;
+            animation-delay: -12.5s;
+        }
+
+        .moving-bar-vertical-2 {
+            top: -50vh;
+            right: 10%;
+            animation-delay: -6.5s;
+            animation-direction: alternate-reverse;
+            background-color: rgba(var(--dark-red-accent-rgb), 0.2);
+        }
+
+        @keyframes moveBarVertical {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(100vh); }
+        }
+
+        .rounded-column {
+            position: fixed;
+            background-color: rgba(255, 255, 255, 0.08);
+            border-radius: 50%;
+            z-index: -2;
+            opacity: 0.7;
+            filter: blur(10px);
+        }
+
+        .rounded-column-1 {
+            width: 150px;
+            height: 150px;
+            top: 5%;
+            right: 5%;
+        }
+
+        .rounded-column-2 {
+            width: 200px;
+            height: 200px;
+            bottom: 10%;
+            left: 10%;
+            background-color: rgba(44, 62, 80, 0.1);
+        }
+
+        .rounded-column-3 {
+            width: 100px;
+            height: 100px;
+            top: 60%;
+            right: 20%;
+            background-color: rgba(243, 156, 18, 0.1);
+            filter: blur(8px);
+        }
+
+        .rounded-column-4 {
+            width: 180px;
+            height: 180px;
+            top: 25%;
+            left: 20%;
+            background-color: rgba(211, 84, 0, 0.1);
+            filter: blur(12px);
+        }
+        /* --- End Background Elements --- */
+
         .header {
             background-color: var(--dark-bg);
             color: var(--light-text);
@@ -39,12 +164,15 @@
             border-bottom-right-radius: 12px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             margin-bottom: 0;
+            position: relative;
+            z-index: 1;
         }
         .header h1 {
             font-size: 2.8rem;
             font-weight: 700;
             margin: 0;
             line-height: 1.2;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); /* Small black border */
         }
         .navbar {
             background-color: var(--dark-bg);
@@ -55,6 +183,8 @@
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             flex-wrap: wrap;
             margin-bottom: 30px;
+            position: relative;
+            z-index: 1;
         }
         .navbar a {
             color: var(--light-text);
@@ -65,6 +195,7 @@
             transition: background-color 0.3s ease, transform 0.2s ease;
             margin: 0 0.5rem;
             white-space: nowrap;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); /* Small black border */
         }
         .navbar a:hover {
             background-color: rgba(255, 255, 255, 0.15);
@@ -84,7 +215,9 @@
             width: 90%;
             margin-bottom: 30px;
             box-sizing: border-box;
-            color: var(--dark-text); /* Default text color for content container */
+            color: var(--dark-text);
+            position: relative;
+            z-index: 1;
         }
         .container h2 {
             color: var(--accent2);
@@ -92,49 +225,6 @@
             font-weight: 700;
             margin-bottom: 20px;
             text-align: center;
-        }
-        .newsletter-links {
-            list-style: none;
-            padding: 0;
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        .newsletter-links li {
-            margin-bottom: 15px;
-        }
-        .newsletter-links a {
-            display: inline-block;
-            background-color: var(--accent1); /* Orange/Gold for newsletter links */
-            color: var(--light-text);
-            padding: 12px 25px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-        .newsletter-links a:hover {
-            background-color: var(--accent2); /* Darker orange on hover */
-            transform: translateY(-2px);
-        }
-        #newsletter-display {
-            border-top: 2px dashed var(--steel-gray); /* Separator */
-            padding-top: 30px;
-            margin-top: 30px;
-            min-height: 200px; /* Give it some minimum height */
-        }
-        #newsletter-display h2 { /* Styling for headings within loaded content */
-            color: var(--accent2);
-            font-size: 1.6rem;
-            font-weight: 700;
-            margin-top: 2.5rem;
-            margin-bottom: 1rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid var(--accent1);
-        }
-        #newsletter-display .highlight-text { /* Styling for highlights within loaded content */
-            color: var(--accent1);
-            font-weight: 600;
         }
         .footer {
             background-color: var(--dark-bg);
@@ -146,11 +236,14 @@
             border-top-right-radius: 12px;
             box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.05);
             margin-top: auto;
+            position: relative;
+            z-index: 1;
         }
         .footer p {
             margin: 0;
             font-size: 0.9rem;
             color: var(--light-text);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); /* Small black border */
         }
 
         /* Responsive adjustments */
@@ -161,7 +254,19 @@
             .container { padding: 25px 25px; width: 95%; }
             .header, .footer { padding-left: 1rem; padding-right: 1rem; }
             .container h2 { font-size: 1.8rem; }
-            #newsletter-display h2 { font-size: 1.4rem; }
+            /* Adjustments for new background elements */
+            .moving-bar { height: 6px; }
+            .moving-bar-1 { top: 10%; }
+            .moving-bar-2 { bottom: 15%; }
+            .moving-bar-3 { top: 40%; }
+            .moving-bar-4 { bottom: 35%; }
+            .moving-bar-vertical { width: 6px; }
+            .moving-bar-vertical-1 { left: 7%; }
+            .moving-bar-vertical-2 { right: 12%; }
+            .rounded-column-1 { width: 100px; height: 100px; top: 2%; right: 2%; }
+            .rounded-column-2 { width: 150px; height: 150px; bottom: 5%; left: 5%; }
+            .rounded-column-3 { width: 80px; height: 80px; top: 55%; right: 15%; }
+            .rounded-column-4 { width: 130px; height: 130px; top: 20%; left: 15%; }
         }
         @media (max-width: 480px) {
             .header h1 { font-size: 1.8rem; }
@@ -169,74 +274,50 @@
             .container { padding: 20px; }
             .navbar { flex-direction: column; align-items: center; }
             .navbar a { margin: 0.25rem 0; width: calc(100% - 2rem); }
-            #newsletter-display h2 { font-size: 1.2rem; }
+            /* Further adjustments for new background elements */
+            .moving-bar { height: 5px; }
+            .moving-bar-vertical { width: 5px; }
+            .rounded-column-1 { width: 70px; height: 70px; }
+            .rounded-column-2 { width: 100px; height: 100px; }
+            .rounded-column-3 { width: 60px; height: 60px; }
+            .rounded-column-4 { width: 90px; height: 90px; }
         }
     </style>
 </head>
 <body>
+    <!-- Background Elements -->
+    <div class="moving-bar moving-bar-1"></div>
+    <div class="moving-bar moving-bar-2"></div>
+    <div class="moving-bar moving-bar-3"></div>
+    <div class="moving-bar moving-bar-4"></div>
+
+    <div class="moving-bar-vertical moving-bar-vertical-1"></div>
+    <div class="moving-bar-vertical moving-bar-vertical-2"></div>
+
+    <div class="rounded-column rounded-column-1"></div>
+    <div class="rounded-column rounded-column-2"></div>
+    <div class="rounded-column rounded-column-3"></div>
+    <div class="rounded-column rounded-column-4"></div>
+
     <div class="header">
-        <h1>Newsletters 📰</h1>
+        <h1>Our Contributors ✍️</h1>
     </div>
 
     <nav class="navbar">
         <a href="index.html">Home</a>
-        <a href="newsletters.html" class="active">Newsletters</a>
-        <a href="contributors.html">Contributors</a>
+        <a href="newsletters.html">Newsletters</a>
+        <a href="contributors.html" class="active">Contributors</a>
         <a href="about.html">About</a>
     </nav>
 
     <div class="container">
-        <h2>Select a Newsletter:</h2>
-        <ul class="newsletter-links">
-            <li><a href="#" data-newsletter-path="may_2025_content.html">May 2025: A Month of Mayhem, a Future Uncertain</a></li>
-            <!-- Add more newsletter links here, e.g.: -->
-            <!-- <li><a href="#" data-newsletter-path="june_2025_content.html">June 2025: Another Great Read</a></li> -->
-        </ul>
-
-        <div id="newsletter-display">
-            <!-- Newsletter content will be loaded here -->
-            <p style="text-align: center; color: var(--dark-text);">Click on a newsletter title above to read its content.</p>
-        </div>
+        <h2>Meet Our Talented Writers</h2>
+        <p>Our newsletters are brought to you by a dedicated team of writers and researchers passionate about shedding light on critical global and domestic issues.</p>
+        <p>Stay tuned for detailed profiles of our contributors!</p>
     </div>
 
     <div class="footer">
         <p>&copy; 2025 Samuel Ravelo Jr. All rights reserved.</p>
     </div>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const newsletterLinks = document.querySelectorAll('.newsletter-links a');
-            const newsletterDisplay = document.getElementById('newsletter-display');
-
-            newsletterLinks.forEach(link => {
-                link.addEventListener('click', async (event) => {
-                    event.preventDefault(); // Prevent default link behavior
-
-                    // Remove active class from all links and add to clicked one
-                    newsletterLinks.forEach(navLink => navLink.classList.remove('active-newsletter'));
-                    link.classList.add('active-newsletter');
-
-                    const newsletterPath = link.getAttribute('data-newsletter-path');
-                    if (newsletterPath) {
-                        try {
-                            // Show a loading indicator
-                            newsletterDisplay.innerHTML = '<p style="text-align: center; color: var(--dark-text);">Loading newsletter...</p>';
-
-                            const response = await fetch(newsletterPath);
-                            if (!response.ok) {
-                                throw new Error(`HTTP error! status: ${response.status}`);
-                            }
-                            const content = await response.text();
-                            newsletterDisplay.innerHTML = content; // Inject the fetched content
-
-                        } catch (error) {
-                            console.error('Failed to load newsletter content:', error);
-                            newsletterDisplay.innerHTML = '<p style="text-align: center; color: var(--dark-text); color: var(--accent2);">Failed to load newsletter. Please try again later.</p>';
-                        }
-                    }
-                });
-            });
-        });
-    </script>
 </body>
 </html>
