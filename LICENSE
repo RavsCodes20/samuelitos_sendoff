@@ -1,4 +1,18 @@
-                    GNU GENERAL PUBLIC LICENSE
+This repository contains both software code and written content. Each is licensed separately as described below.
+
+---
+
+1. SOFTWARE CODE
+
+All software code in this project is licensed under the GNU General Public License v3.0 (GPLv3).
+
+Copyright (C) Samuel Ravelo Jr 2025
+
+Everyone is permitted to copy and distribute verbatim copies of this license document, but changing it is not allowed.
+
+The full text of the GNU General Public License follows.
+
+                      GNU GENERAL PUBLIC LICENSE
                        Version 3, 29 June 2007
 
  Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>
@@ -672,3 +686,24 @@ may consider it more useful to permit linking proprietary applications with
 the library.  If this is what you want to do, use the GNU Lesser General
 Public License instead of this License.  But first, please read
 <https://www.gnu.org/licenses/why-not-lgpl.html>.
+
+---
+
+2. WRITTEN CONTENT (Documentation, Descriptions, etc.)
+
+All non-code written content in this project is licensed under the Creative Commons Attribution 4.0 International License (CC BY 4.0).
+
+You are free to:
+
+- Share — copy and redistribute the material in any medium or format.
+- Adapt — remix, transform, and build upon the material for any purpose, even commercially.
+
+Under the following terms:
+
+- **Attribution** — You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.
+
+For the full license, see: https://creativecommons.org/licenses/by/4.0/
+
+---
+
+End of License
