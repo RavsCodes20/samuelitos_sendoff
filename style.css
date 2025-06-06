@@ -316,10 +316,10 @@ body {
 
 /* --- News App Specific Styles --- */
 .news-category {
-    margin-bottom: 2rem;
+    margin-bottom: 2rem; /* Adjusted for spacing within tabs */
 }
 .news-category h3 {
-    font-size: 1.5rem;
+    font-size: 1.5rem; /* No longer used directly due to tabs, but kept for consistency */
     font-weight: 600;
     color: var(--accent1);
     margin-bottom: 1rem;
@@ -350,6 +350,54 @@ body {
     text-decoration: none;
     font-weight: 600;
     display: block;
+}
+
+/* Tabbed Interface Styles for News App */
+.tab-buttons {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 25px;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    gap: 10px; /* Space between buttons */
+}
+
+.tab-button {
+    background-color: var(--primary-bg); /* Use primary-bg for tabs */
+    color: var(--light-text);
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    white-space: nowrap; /* Prevent text wrapping inside buttons */
+}
+
+.tab-button:hover {
+    background-color: var(--dark-bg); /* Darker on hover */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.tab-button.active {
+    background-color: var(--accent1); /* Accent color for active tab */
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-bottom: 3px solid var(--accent2); /* Highlight active tab */
+}
+
+.tab-content {
+    animation: fadeIn 0.5s ease-out; /* Simple fade-in animation for content */
+}
+
+.tab-content.hidden {
+    display: none;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 /* Spinner for loading indicator */
@@ -390,6 +438,11 @@ body {
     .rounded-column-2 { width: 150px; height: 150px; bottom: 5%; left: 5%; }
     .rounded-column-3 { width: 80px; height: 80px; top: 55%; right: 15%; }
     .rounded-column-4 { width: 130px; height: 130px; top: 20%; left: 15%; }
+
+    .tab-button {
+        padding: 10px 15px;
+        font-size: 0.9rem;
+    }
 }
 @media (max-width: 480px) {
     .header h1 { font-size: 1.8rem; }
@@ -406,4 +459,8 @@ body {
     .rounded-column-2 { width: 100px; height: 100px; }
     .rounded-column-3 { width: 60px; height: 60px; }
     .rounded-column-4 { width: 90px; height: 90px; }
+
+    .tab-button {
+        width: 100%; /* Full width buttons on very small screens */
+    }
 }
