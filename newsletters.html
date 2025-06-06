@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Newsletters Archive</title>
+    <title>Contributors</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
@@ -215,7 +215,7 @@
             width: 90%;
             margin-bottom: 30px;
             box-sizing: border-box;
-            color: var(--dark-text); /* Default text color for content container */
+            color: var(--dark-text);
             position: relative;
             z-index: 1;
         }
@@ -225,49 +225,6 @@
             font-weight: 700;
             margin-bottom: 20px;
             text-align: center;
-        }
-        .newsletter-links {
-            list-style: none;
-            padding: 0;
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        .newsletter-links li {
-            margin-bottom: 15px;
-        }
-        .newsletter-links a {
-            display: inline-block;
-            background-color: var(--accent1); /* Orange/Gold for newsletter links */
-            color: var(--light-text);
-            padding: 12px 25px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-        .newsletter-links a:hover {
-            background-color: var(--accent2); /* Darker orange on hover */
-            transform: translateY(-2px);
-        }
-        #newsletter-display {
-            border-top: 2px dashed var(--steel-gray); /* Separator */
-            padding-top: 30px;
-            margin-top: 30px;
-            min-height: 200px; /* Give it some minimum height */
-        }
-        #newsletter-display h2 { /* Styling for headings within loaded content */
-            color: var(--accent2);
-            font-size: 1.6rem;
-            font-weight: 700;
-            margin-top: 2.5rem;
-            margin-bottom: 1rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid var(--accent1);
-        }
-        #newsletter-display .highlight-text { /* Styling for highlights within loaded content */
-            color: var(--accent1);
-            font-weight: 600;
         }
         .footer {
             background-color: var(--dark-bg);
@@ -343,68 +300,24 @@
     <div class="rounded-column rounded-column-4"></div>
 
     <div class="header">
-        <h1>Newsletters 📰</h1>
+        <h1>Our Contributors ✍️</h1>
     </div>
 
     <nav class="navbar">
         <a href="index.html">Home</a>
-        <a href="newsletters.html" class="active">Newsletters</a>
-        <a href="contributors.html">Contributors</a>
+        <a href="newsletters.html">Newsletters</a>
+        <a href="contributors.html" class="active">Contributors</a>
         <a href="about.html">About</a>
     </nav>
 
     <div class="container">
-        <h2>Select a Newsletter:</h2>
-        <ul class="newsletter-links">
-            <li><a href="#" data-newsletter-path="may_2025_content.html">May 2025: A Month of Mayhem, a Future Uncertain</a></li>
-            <!-- Add more newsletter links here, e.g.: -->
-            <!-- <li><a href="#" data-newsletter-path="june_2025_content.html">June 2025: Another Great Read</a></li> -->
-        </ul>
-
-        <div id="newsletter-display">
-            <!-- Newsletter content will be loaded here -->
-            <p style="text-align: center; color: var(--dark-text);">Click on a newsletter title above to read its content.</p>
-        </div>
+        <h2>Meet Our Talented Writers</h2>
+        <p>Our newsletters are brought to you by a dedicated team of writers and researchers passionate about shedding light on critical global and domestic issues.</p>
+        <p>Stay tuned for detailed profiles of our contributors!</p>
     </div>
 
     <div class="footer">
         <p>&copy; 2025 Samuel Ravelo Jr. All rights reserved.</p>
     </div>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const newsletterLinks = document.querySelectorAll('.newsletter-links a');
-            const newsletterDisplay = document.getElementById('newsletter-display');
-
-            newsletterLinks.forEach(link => {
-                link.addEventListener('click', async (event) => {
-                    event.preventDefault(); // Prevent default link behavior
-
-                    // Remove active class from all links and add to clicked one
-                    newsletterLinks.forEach(navLink => navLink.classList.remove('active-newsletter'));
-                    link.classList.add('active-newsletter');
-
-                    const newsletterPath = link.getAttribute('data-newsletter-path');
-                    if (newsletterPath) {
-                        try {
-                            // Show a loading indicator
-                            newsletterDisplay.innerHTML = '<p style="text-align: center; color: var(--dark-text);">Loading newsletter...</p>';
-
-                            const response = await fetch(newsletterPath);
-                            if (!response.ok) {
-                                throw new Error(`HTTP error! status: ${response.status}`);
-                            }
-                            const content = await response.text();
-                            newsletterDisplay.innerHTML = content; // Inject the fetched content
-
-                        } catch (error) {
-                            console.error('Failed to load newsletter content:', error);
-                            newsletterDisplay.innerHTML = '<p style="text-align: center; color: var(--dark-text); color: var(--accent2);">Failed to load newsletter. Please try again later.</p>';
-                        }
-                    }
-                });
-            });
-        });
-    </script>
 </body>
 </html>
