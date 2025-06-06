@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="news-app-page"> <!-- Added class for JavaScript targeting -->
     <!-- Background Elements -->
     <div class="moving-bar moving-bar-1"></div>
     <div class="moving-bar moving-bar-2"></div>
@@ -82,10 +82,28 @@
             </div>
         </div>
 
+        <div class="gemini-app-section">
+            <h2 class="mt-8">Ask Gemini</h2>
+            <p>Enter a prompt below and get a response from the Gemini AI model.</p>
+            <textarea id="gemini-prompt" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-accent1" rows="4" placeholder="e.g., 'Summarize recent global political developments in 100 words.'"></textarea>
+            <button id="send-prompt-btn" class="mt-4 w-full bg-accent1 text-light-text py-3 rounded-lg font-bold hover:bg-accent2 transition transform hover:-translate-y-1 shadow-md">
+                Send Prompt to Gemini
+            </button>
+            <div id="loading-indicator" class="hidden text-center mt-4 text-dark-text">
+                <p>Loading response from Gemini...</p>
+                <div class="spinner"></div>
+            </div>
+            <div id="gemini-response-display" class="mt-6 p-4 bg-gray-100 rounded-lg shadow-inner text-dark-text min-h-[100px] flex items-center justify-center text-center">
+                <p class="text-gray-500">Your AI response will appear here.</p>
+            </div>
+        </div>
+
     </div>
 
     <div class="footer">
         <p>&copy; 2025 Samuel Ravelo Jr. All rights reserved.</p>
     </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
