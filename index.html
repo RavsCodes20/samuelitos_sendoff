@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Monthly Newsletters</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --purple: #5A2A70; /* A deep purple */
+            --darker-pink: #D87093; /* A darker pink */
+            --steel-gray: #6B7280; /* A medium steel gray */
+            --darker-steel-gray: #4B5563; /* Darker steel gray for header */
+            --parchment-color: #F8F0E3; /* Parchment background color */
+            --white: #FFFFFF;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--steel-gray);
+            color: #374151;
+            line-height: 1.7;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .header {
+            background-color: var(--darker-steel-gray);
+            color: var(--white);
+            padding: 2.5rem 1.5rem;
+            width: 100%;
+            text-align: center;
+            border-bottom-left-radius: 12px;
+            border-bottom-right-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+        .header h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin: 0;
+            line-height: 1.2;
+        }
+        .container {
+            background-color: var(--parchment-color);
+            padding: 30px 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            width: 90%;
+            margin-bottom: 30px;
+            box-sizing: border-box;
+        }
+        h2 {
+            color: var(--purple);
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .newsletter-list {
+            list-style: none;
+            padding: 0;
+            text-align: center;
+        }
+        .newsletter-list li {
+            margin-bottom: 15px;
+        }
+        .newsletter-list a {
+            display: inline-block;
+            background-color: var(--darker-pink);
+            color: var(--white);
+            padding: 12px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .newsletter-list a:hover {
+            background-color: var(--purple);
+            transform: translateY(-2px);
+        }
+        .footer {
+            background-color: var(--steel-gray);
+            color: var(--parchment-color);
+            padding: 1.5rem 1.5rem;
+            width: 100%;
+            text-align: center;
+            border-top-left-radius: 12px;
+            border-top-right-radius: 12px;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.05);
+            margin-top: auto;
+        }
+        .footer p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: var(--parchment-color);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.2rem;
+            }
+            .container {
+                padding: 25px 25px;
+                width: 95%;
+            }
+            .header, .footer {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+            h2 {
+                font-size: 1.8rem;
+            }
+            .newsletter-list a {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+        }
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 1.8rem;
+            }
+            h2 {
+                font-size: 1.5rem;
+            }
+            .container {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Samuelito's Sendoff 🔊</h1>
+    </div>
+
+    <div class="container">
+        <h2>Archived Newsletters</h2>
+        <ul class="newsletter-list">
+            <li><a href="may_2025_newsletter.html">May 2025: A Month of Mayhem, a Future Uncertain</a></li>
+            <!-- Add future newsletters here -->
+            <!-- <li><a href="june_2025_newsletter.html">June 2025: [Newsletter Title]</a></li> -->
+        </ul>
+    </div>
+
+    <div class="footer">
+        <p>&copy; Samuel Ravelo Jr. All rights reserved.</p>
+    </div>
+</body>
+</html>
