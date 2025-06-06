@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Month of Mayhem, a Future Uncertain</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --purple: #5A2A70; /* A deep purple */
+            --darker-pink: #D87093; /* A darker pink, replaced salmon */
+            --steel-gray: #6B7280; /* A medium steel gray */
+            --darker-steel-gray: #4B5563; /* New darker steel gray for header */
+            --parchment-color: #F8F0E3; /* New parchment background color */
+            --white: #FFFFFF; /* Retained for other possible elements */
+            --red-accent: #EF4444; /* A vibrant red */
+            --light-red-accent: #FCA5A5; /* A lighter shade of red */
+            --dark-red-heading: #C00000; /* New dark red for headings */
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--steel-gray); /* Changed to steel gray */
+            color: #374151; /* Dark gray for general text */
+            line-height: 1.7; /* Increased line height for readability */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            min-height: 100vh;
+            position: relative; /* Needed for pseudo-elements positioning */
+            overflow-x: hidden; /* Prevent horizontal scroll for background elements */
+        }
+
+        /* Background Swirls/Blocks */
+        body::before, body::after {
+            content: '';
+            position: fixed; /* Fixed position so they stay put on scroll */
+            z-index: -1; /* Send them behind the content */
+            opacity: 0.1; /* Make them subtle */
+        }
+
+        body::before {
+            background: radial-gradient(circle at 10% 20%, var(--red-accent) 0%, transparent 70%);
+            width: 500px;
+            height: 500px;
+            top: -100px;
+            left: -150px;
+            border-radius: 50%;
+            transform: rotate(30deg);
+        }
+
+        body::after {
+            background: linear-gradient(135deg, var(--light-red-accent) 0%, transparent 70%);
+            width: 400px;
+            height: 400px;
+            bottom: -100px;
+            right: -100px;
+            border-radius: 20px;
+            transform: rotate(-45deg);
+        }
+
+        .header {
+            background-color: var(--darker-steel-gray); /* Changed to darker steel gray */
+            color: var(--white);
+            padding: 2.5rem 1.5rem; /* More vertical padding for the header */
+            width: 100%;
+            text-align: center;
+            border-bottom-left-radius: 12px;
+            border-bottom-right-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            position: relative; /* Ensure header is above background elements */
+            z-index: 1;
+        }
+        .header h1 {
+            font-size: 2.8rem; /* Larger header title */
+            font-weight: 700;
+            margin: 0;
+            line-height: 1.2;
+        }
+        .container {
+            background-color: var(--parchment-color); /* Changed from white to parchment */
+            padding: 30px 40px; /* Adjusted padding */
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            width: 90%; /* Fluid width */
+            margin-bottom: 30px;
+            box-sizing: border-box; /* Include padding in width calculation */
+            position: relative; /* Ensure container is above background elements */
+            z-index: 1;
+        }
+        p {
+            margin-bottom: 1.25rem; /* Consistent paragraph spacing */
+            color: #4B5563; /* Slightly lighter than body text for paragraphs */
+        }
+        .highlight-text {
+            color: var(--darker-pink); /* Using the new darker pink for highlights */
+            font-weight: 600;
+        }
+        h2 {
+            color: var(--dark-red-heading); /* Headings in dark red */
+            font-size: 1.6rem;
+            font-weight: 700; /* Bold formatting */
+            margin-top: 2.5rem; /* Space above headings */
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--darker-pink); /* Underline with darker pink */
+        }
+        /* Style for the first paragraph which follows the main title directly */
+        .container > p:first-of-type {
+            margin-top: 1.5rem;
+        }
+        .footer {
+            background-color: var(--steel-gray);
+            color: var(--light-gray-bg);
+            padding: 1.5rem 1.5rem;
+            width: 100%;
+            text-align: center;
+            border-top-left-radius: 12px;
+            border-top-right-radius: 12px;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.05);
+            margin-top: auto; /* Pushes footer to the bottom */
+            position: relative; /* Ensure footer is above background elements */
+            z-index: 1;
+        }
+        .footer p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: var(--light-gray-bg);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.2rem;
+            }
+            h2 {
+                font-size: 1.4rem;
+            }
+            .container {
+                padding: 25px 25px;
+                width: 95%;
+            }
+            .header, .footer {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+            body::before {
+                width: 350px;
+                height: 350px;
+                top: -50px;
+                left: -100px;
+            }
+            body::after {
+                width: 250px;
+                height: 250px;
+                bottom: -50px;
+                right: -50px;
+            }
+        }
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 1.8rem;
+            }
+            h2 {
+                font-size: 1.2rem;
+            }
+            .container {
+                padding: 20px;
+            }
+            body::before {
+                width: 250px;
+                height: 250px;
+                top: 0px;
+                left: -70px;
+            }
+            body::after {
+                width: 180px;
+                height: 180px;
+                bottom: 0px;
+                right: -30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>A Month of Mayhem, a Future Uncertain</h1>
+    </div>
+
+    <div class="container">
+        <p>In May, the world quietly began arranging itself for something worse.</p>
+
+        <h2>The Re-Emergence of Trump's Travel Ban</h2>
+        <p>The return of the <span class="highlight-text">Trump travel ban</span> exemplified this, showcasing not merely a policy restoration but a posture of strength as cruelty, and security as selective exclusion. Though narrower than 2017’s infamous iteration, its message remained clear: some people belong, others do not.</p>
+
+        <h2>Inertia and Centrist Leadership in Europe & Australia</h2>
+        <p>Across the Atlantic, the German parliament handed <span class="highlight-text">Friedrich Merz the chancellorship</span>, a victory for inertia in a Europe bracing for economic contraction. Merz, a centrist technocrat, offers managerial austerity in lieu of actual vision. A similar narrative played out in Australia, where the <span class="highlight-text">Labor Party eked out another term</span> by mastering the art of governing without causing much stir.</p>
+
+        <h2>Global Health Concerns and Domestic Distractions</h2>
+        <p>But the surface calm belies deeper fractures.</p>
+        <p>In Malawi, health officials confirmed a <span class="highlight-text">sixth case of mpox</span>, with no clear source. In the Philippines, the ruling alliance won its general election with thin credibility. In the United States, <span class="highlight-text">federal legislation against revenge porn</span> was rightly hailed as a moral necessity, though it landed with the pageantry of a PR stunt, overshadowed by TikTok bans and new gun massacres.</p>
+
+        <h2>The Contradictory Nature of Modern Rights</h2>
+        <p>The result is a curious dissonance: rights granted and revoked in the same breath. Citizenship is stripped in one country, restored in another. First-world parliaments performatively rebuke authoritarianism while their own borders harden, surveillance states expand, and labor markets grow more precarious.</p>
+
+        <h2>The Alarming Silence of Global Institutions</h2>
+        <p>Nothing captures May’s absurdity like the silence — the eerie quiet from global institutions and media as the machinery of repression whirs back to life, updated, more efficient. Trump’s policies return not with shock, but with scheduling. Protesters march, but cameras are mostly elsewhere.</p>
+
+        <h2>Anticipating June: A Future of Symbolic Gestures</h2>
+        <p>By June, we anticipate more symbolic legislation, more abstract peace summits, and more praise for political “resilience” while communities unravel under economic exploitation, ecological pressure, and digital alienation.</p>
+
+        <h2>A Crisis of Permitted Authoritarianism</h2>
+        <p>What emerges is not merely a crisis of leadership, but a crisis of permission. The liberal order is learning to live with authoritarian impulses, so long as they come dressed in procedure and performed regret. The fascists have the advantage, not because they’re stronger, but because they’re clearer.</p>
+
+        <h2>The People Bear the Burden of Clarity</h2>
+        <p>As ever, the burden of clarity falls on the people — undocumented workers organizing in New York, nurses in Lilongwe tracing disease outbreaks, young voters in Manila demanding more than recycled strongmen.</p>
+
+        <h2>The Urgent Question: Building the Future Ground</h2>
+        <p>The question for June is not whether the world is tipping. It already has. The real question is: who’s going to build the ground we land on?</p>
+    </div>
+
+    <div class="footer">
+        <p>&copy; Samuel Ravelo Jr. All rights reserved.</p>
+    </div>
+</body>
+</html>
