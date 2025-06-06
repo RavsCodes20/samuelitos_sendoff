@@ -293,6 +293,15 @@ body {
     color: var(--accent1);
     font-weight: 600;
 }
+.newsletter-article img.newsletter-image { /* New style for images within newsletter content */
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 1.5rem auto; /* Center image and provide vertical spacing */
+    display: block; /* Ensures margin:auto works */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
 
 /* --- News App Specific Styles --- */
 .news-category {
