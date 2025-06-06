@@ -84,7 +84,7 @@
             width: 90%;
             margin-bottom: 30px;
             box-sizing: border-box;
-            color: var(--dark-text);
+            color: var(--dark-text); /* Text color inside parchment container */
         }
         .container h2 {
             color: var(--accent2);
@@ -92,6 +92,15 @@
             font-weight: 700;
             margin-bottom: 20px;
             text-align: center;
+        }
+        .section-heading {
+            color: var(--accent2); /* Use accent2 for section headings */
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--accent1); /* Accent1 for underline */
         }
         .footer {
             background-color: var(--dark-bg);
@@ -109,6 +118,17 @@
             font-size: 0.9rem;
             color: var(--light-text);
         }
+        .contact-info p {
+            margin-bottom: 0.5rem;
+        }
+        .contact-info a {
+            color: var(--accent1);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .contact-info a:hover {
+            color: var(--accent2);
+        }
 
         /* Responsive adjustments */
         @media (max-width: 768px) {
@@ -118,10 +138,12 @@
             .container { padding: 25px 25px; width: 95%; }
             .header, .footer { padding-left: 1rem; padding-right: 1rem; }
             .container h2 { font-size: 1.8rem; }
+            .section-heading { font-size: 1.6rem; }
         }
         @media (max-width: 480px) {
             .header h1 { font-size: 1.8rem; }
             .container h2 { font-size: 1.5rem; }
+            .section-heading { font-size: 1.4rem; }
             .container { padding: 20px; }
             .navbar { flex-direction: column; align-items: center; }
             .navbar a { margin: 0.25rem 0; width: calc(100% - 2rem); }
@@ -141,9 +163,42 @@
     </nav>
 
     <div class="container">
-        <h2>Our Mission</h2>
-        <p>Samuelito's Sendoff is dedicated to providing insightful and timely commentary on significant global and domestic events. We aim to cut through the noise and offer clear, concise perspectives on the complex issues shaping our world.</p>
-        <p>Our content is meticulously researched and thoughtfully presented, ensuring our readers receive a comprehensive understanding of current affairs.</p>
+        <section>
+            <h2 class="section-heading">Our Mission & Vision</h2>
+            <p>Samuelito's Sendoff is dedicated to providing insightful and timely commentary on significant global and domestic events. We aim to cut through the noise and offer clear, concise perspectives on the complex issues shaping our world.</p>
+            <p>Our vision is to empower our readers with comprehensive understanding, fostering informed discussion and critical thinking in an increasingly complex world. We believe that clarity is the first step towards meaningful engagement and change.</p>
+        </section>
+
+        <section>
+            <h2 class="section-heading">Our Core Values</h2>
+            <ul class="list-disc list-inside ml-4">
+                <li><strong>Accuracy:</strong> Meticulously researched and fact-checked content.</li>
+                <li><strong>Impartiality:</strong> Presenting information fairly and objectively.</li>
+                <li><strong>Depth:</strong> Going beyond headlines to explore underlying contexts and implications.</li>
+                <li><strong>Clarity:</strong> Communicating complex ideas in an accessible and understandable manner.</li>
+                <li><strong>Engagement:</strong> Encouraging thoughtful reflection and community discussion.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2 class="section-heading">Our Journey</h2>
+            <p>Samuelito's Sendoff began in early 2025 as a passion project to distill the overwhelming daily news into digestible, insightful summaries. What started as a small endeavor for a close-knit group has grown into a platform reaching a wider audience, driven by the belief that informed citizens are essential for a robust society.</p>
+            <p>We are continuously evolving, striving to improve our content and delivery methods to better serve our readers.</p>
+        </section>
+
+        <section>
+            <h2 class="section-heading">Contact Us</h2>
+            <p>We value your feedback and inquiries. Please feel free to reach out to us:</p>
+            <div class="contact-info">
+                <p><strong>Email:</strong> <a href="mailto:info@samuelitossendoff.com">info@samuelitossendoff.com</a></p>
+                <p><strong>Follow Us:</strong> 
+                    <a href="#" target="_blank" class="hover:underline">Twitter</a> | 
+                    <a href="#" target="_blank" class="hover:underline">LinkedIn</a>
+                    <!-- Replace # with actual social media links -->
+                </p>
+                <p><strong>General Inquiries:</strong> Use the email above for any questions, partnership opportunities, or feedback.</p>
+            </div>
+        </section>
     </div>
 
     <div class="footer">
