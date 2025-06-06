@@ -2,7 +2,8 @@
 
 document.addEventListener('DOMContentLoaded', () => {
     // Logic for newsletters.html to load content dynamically
-    if (document.body.classList.contains('newsletters-page')) { // Add a class to your newsletters.html body like <body class="newsletters-page">
+    // This condition checks if the current page's body has the 'newsletters-page' class
+    if (document.body.classList.contains('newsletters-page')) {
         const newsletterLinks = document.querySelectorAll('.newsletter-links a');
         const newsletterDisplay = document.getElementById('newsletter-display');
 
