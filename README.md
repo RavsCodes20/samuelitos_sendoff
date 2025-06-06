@@ -1,8 +1,8 @@
-# Samuelito's Sendoff
+# The Sendoff
 
 ## Project Overview
 
-"Samuelito's Sendoff" is a personal website designed to serve as an archive for monthly publications, offer quick access to various news sources, and provide an interactive AI prompt tool. It's built with a focus on clear content delivery and a subtle, engaging visual experience.
+"The Sendoff" is a personal website designed to serve as an archive for monthly publications, offer quick access to various news sources, and provide an interactive AI prompt tool. It's built with a focus on clear content delivery and a subtle, engaging visual experience.
 
 ## Features
 
