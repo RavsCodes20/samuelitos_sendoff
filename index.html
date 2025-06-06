@@ -3,22 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Monthly Newsletters</title>
+    <title>Samuelito's Sendoff - Home</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --purple: #5A2A70; /* A deep purple */
-            --darker-pink: #D87093; /* A darker pink */
-            --steel-gray: #6B7280; /* A medium steel gray */
-            --darker-steel-gray: #4B5563; /* Darker steel gray for header */
-            --parchment-color: #F8F0E3; /* Parchment background color */
-            --white: #FFFFFF;
+            --primary-bg: #6B7280; /* Steel Gray */
+            --dark-bg: #2C3E50; /* Dark Blue-Gray for Header, Footer, Nav */
+            --light-text: #FFFFFF; /* White */
+            --dark-text: #34495E; /* Dark Blue-Gray for text on light backgrounds */
+            --content-bg: #F8F0E3; /* Parchment */
+            --accent1: #F39C12; /* Vibrant Orange/Gold for highlights/links */
+            --accent2: #D35400; /* Darker Orange/Brown for headings/borders */
         }
         body {
             font-family: 'Inter', sans-serif;
-            background-color: var(--steel-gray);
-            color: #374151;
+            background-color: var(--primary-bg);
+            color: var(--light-text); /* Default text color for the body */
             line-height: 1.7;
             margin: 0;
             padding: 0;
@@ -29,15 +30,15 @@
             min-height: 100vh;
         }
         .header {
-            background-color: var(--darker-steel-gray);
-            color: var(--white);
+            background-color: var(--dark-bg);
+            color: var(--light-text);
             padding: 2.5rem 1.5rem;
             width: 100%;
             text-align: center;
             border-bottom-left-radius: 12px;
             border-bottom-right-radius: 12px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            margin-bottom: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin-bottom: 0;
         }
         .header h1 {
             font-size: 2.8rem;
@@ -45,8 +46,37 @@
             margin: 0;
             line-height: 1.2;
         }
+        .navbar {
+            background-color: var(--dark-bg); /* Match header/footer */
+            width: 100%;
+            padding: 1rem 0;
+            display: flex;
+            justify-content: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+        .navbar a {
+            color: var(--light-text);
+            padding: 0.75rem 1.25rem;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 6px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            margin: 0 0.5rem;
+            white-space: nowrap;
+        }
+        .navbar a:hover {
+            background-color: rgba(255, 255, 255, 0.15); /* Subtle hover */
+            transform: translateY(-1px);
+        }
+        .navbar a.active {
+            background-color: var(--accent1); /* Accent color for active link */
+            cursor: default;
+            transform: none;
+        }
         .container {
-            background-color: var(--parchment-color);
+            background-color: var(--content-bg); /* Parchment color for content */
             padding: 30px 40px;
             border-radius: 12px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -55,39 +85,20 @@
             margin-bottom: 30px;
             box-sizing: border-box;
         }
-        h2 {
-            color: var(--purple);
+        .container p {
+            color: var(--dark-text); /* Dark text inside parchment container */
+            margin-bottom: 1.25rem;
+        }
+        .container h2 {
+            color: var(--accent2); /* Accent2 for inner headings */
             font-size: 2rem;
             font-weight: 700;
             margin-bottom: 20px;
             text-align: center;
         }
-        .newsletter-list {
-            list-style: none;
-            padding: 0;
-            text-align: center;
-        }
-        .newsletter-list li {
-            margin-bottom: 15px;
-        }
-        .newsletter-list a {
-            display: inline-block;
-            background-color: var(--darker-pink);
-            color: var(--white);
-            padding: 12px 25px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-        .newsletter-list a:hover {
-            background-color: var(--purple);
-            transform: translateY(-2px);
-        }
         .footer {
-            background-color: var(--steel-gray);
-            color: var(--parchment-color);
+            background-color: var(--dark-bg);
+            color: var(--light-text);
             padding: 1.5rem 1.5rem;
             width: 100%;
             text-align: center;
@@ -99,40 +110,24 @@
         .footer p {
             margin: 0;
             font-size: 0.9rem;
-            color: var(--parchment-color);
+            color: var(--light-text);
         }
 
         /* Responsive adjustments */
         @media (max-width: 768px) {
-            .header h1 {
-                font-size: 2.2rem;
-            }
-            .container {
-                padding: 25px 25px;
-                width: 95%;
-            }
-            .header, .footer {
-                padding-left: 1rem;
-                padding-right: 1rem;
-            }
-            h2 {
-                font-size: 1.8rem;
-            }
-            .newsletter-list a {
-                padding: 10px 20px;
-                font-size: 0.9rem;
-            }
+            .header h1 { font-size: 2.2rem; }
+            .navbar { padding: 0.75rem 0; }
+            .navbar a { margin: 0.5rem 0.5rem; font-size: 0.9rem; }
+            .container { padding: 25px 25px; width: 95%; }
+            .header, .footer { padding-left: 1rem; padding-right: 1rem; }
+            .container h2 { font-size: 1.8rem; }
         }
         @media (max-width: 480px) {
-            .header h1 {
-                font-size: 1.8rem;
-            }
-            h2 {
-                font-size: 1.5rem;
-            }
-            .container {
-                padding: 20px;
-            }
+            .header h1 { font-size: 1.8rem; }
+            .container h2 { font-size: 1.5rem; }
+            .container { padding: 20px; }
+            .navbar { flex-direction: column; align-items: center; }
+            .navbar a { margin: 0.25rem 0; width: calc(100% - 2rem); }
         }
     </style>
 </head>
@@ -141,17 +136,21 @@
         <h1>Samuelito's Sendoff 🔊</h1>
     </div>
 
+    <nav class="navbar">
+        <a href="index.html" class="active">Home</a>
+        <a href="newsletters.html">Newsletters</a>
+        <a href="contributors.html">Contributors</a>
+        <a href="about.html">About</a>
+    </nav>
+
     <div class="container">
-        <h2>Archived Newsletters</h2>
-        <ul class="newsletter-list">
-            <li><a href="may_2025_newsletter.html">May 2025: A Month of Mayhem, a Future Uncertain</a></li>
-            <!-- Add future newsletters here -->
-            <!-- <li><a href="june_2025_newsletter.html">June 2025: [Newsletter Title]</a></li> -->
-        </ul>
+        <h2>Welcome to Samuelito's Sendoff!</h2>
+        <p>This is the official archive for all our monthly publications. Explore our insights, analyses, and stories covering a range of topics. We strive to bring you clarity in a world of uncertainty.</p>
+        <p>Navigate through our sections using the menu above to find archived newsletters, learn about our contributors, or discover more about our mission.</p>
     </div>
 
     <div class="footer">
-        <p>&copy; Samuel Ravelo Jr. All rights reserved.</p>
+        <p>&copy; 2025 Samuel Ravelo Jr. All rights reserved.</p>
     </div>
 </body>
 </html>
