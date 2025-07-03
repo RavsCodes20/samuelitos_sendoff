@@ -1,5 +1,10 @@
-/* style.css */
-
+/*
+ * -----------------------------------------------------------
+ * Global CSS Variables
+ * Defines a set of custom properties for colors and sizes
+ * to ensure consistency and easy theme changes.
+ * -----------------------------------------------------------
+ */
 :root {
     --primary-bg: #6B7280; /* Steel Gray */
     --dark-bg: #2C3E50; /* Dark Blue-Gray for Header, Footer, Nav */
@@ -9,13 +14,23 @@
     --accent1: #F39C12; /* Vibrant Orange/Gold for highlights/links */
     --accent2: #D35400; /* Darker Orange/Brown for headings/borders */
     --dark-red-accent: #C00000; /* Explicit dark red */
-    --dark-red-accent-rgb: 192, 0, 0; /* RGB for transparent dark red */
-    --accent1-rgb: 243, 156, 18; /* RGB for accent1 for use in rgba */
+
+    /* RGB values for transparent colors */
+    --dark-red-accent-rgb: 192, 0, 0;
+    --accent1-rgb: 243, 156, 18;
 }
+
+/*
+ * -----------------------------------------------------------
+ * Base Body & Global Styles
+ * General styling for the entire page, including font,
+ * background, text color, and basic layout.
+ * -----------------------------------------------------------
+ */
 body {
     font-family: 'Inter', sans-serif;
     background-color: var(--primary-bg);
-    color: var(--light-text); /* Default text color for the body */
+    color: var(--light-text);
     line-height: 1.7;
     margin: 0;
     padding: 0;
@@ -24,94 +39,100 @@ body {
     justify-content: flex-start;
     align-items: center;
     min-height: 100vh;
-    position: relative; /* Needed for positioning background elements */
-    overflow-x: hidden; /* Prevent horizontal scroll from animations */
+    position: relative; /* Essential for absolute/fixed positioned children */
+    overflow-x: hidden; /* Prevents horizontal scroll caused by animations */
 }
 
-/* --- Background Elements --- */
+/*
+ * -----------------------------------------------------------
+ * Background Animation Elements
+ * Styles and animations for the moving bars and rounded columns
+ * that create a dynamic background effect.
+ * -----------------------------------------------------------
+ */
 .moving-bar {
     position: fixed;
     height: 8px; /* Thickness of horizontal bars */
-    background-color: rgba(var(--dark-red-accent-rgb), 0.3); /* Dark red, somewhat transparent */
-    z-index: -1;
-    animation: moveBarHorizontal 10s linear infinite alternate; /* 'alternate' for smooth loop, DURATION HALVED */
+    background-color: rgba(var(--dark-red-accent-rgb), 0.3);
+    z-index: -1; /* Ensures bars stay behind content */
+    animation: moveBarHorizontal 10s linear infinite alternate;
 }
 
 .moving-bar-1 {
-    width: 200vw; /* Wider than screen */
+    width: 200vw;
     top: 15%;
-    left: -50vw; /* Starts off-screen to the left */
-    animation-delay: -5s; /* HALVED from -10s */
+    left: -50vw;
+    animation-delay: -5s;
 }
 
 .moving-bar-2 {
     width: 200vw;
     bottom: 20%;
-    left: -50vw; /* Starts off-screen to the left */
-    animation-delay: -2.5s; /* HALVED from -5s */
-    animation-direction: alternate-reverse; /* For opposite direction loop */
+    left: -50vw;
+    animation-delay: -2.5s;
+    animation-direction: alternate-reverse;
 }
 
 .moving-bar-3 {
     width: 200vw;
     top: 45%;
-    left: -50vw; /* Starts off-screen to the left */
+    left: -50vw;
     height: 6px;
-    background-color: rgba(var(--dark-red-accent-rgb), 0.2); /* Slightly more transparent */
-    animation-delay: -1.75s; /* HALVED from -3.5s */
+    background-color: rgba(var(--dark-red-accent-rgb), 0.2);
+    animation-delay: -1.75s;
     animation-direction: alternate;
 }
 
 .moving-bar-4 {
     width: 200vw;
     bottom: 40%;
-    left: -50vw; /* Starts off-screen to the left */
+    left: -50vw;
     height: 6px;
-    background-color: rgba(var(--dark-red-accent-rgb), 0.2); /* Slightly more transparent */
-    animation-delay: -4.25s; /* HALVED from -8.5s */
+    background-color: rgba(var(--dark-red-accent-rgb), 0.2);
+    animation-delay: -4.25s;
     animation-direction: alternate-reverse;
 }
 
 @keyframes moveBarHorizontal {
     0% { transform: translateX(0); }
-    100% { transform: translateX(100vw); } /* Moves by one viewport width */
+    100% { transform: translateX(100vw); }
 }
 
 .moving-bar-vertical {
     position: fixed;
     width: 8px; /* Thickness of vertical bars */
-    height: 200vh; /* Taller than screen */
-    background-color: rgba(var(--dark-red-accent-rgb), 0.3); /* Dark red, somewhat transparent */
+    height: 200vh;
+    background-color: rgba(var(--dark-red-accent-rgb), 0.3);
     z-index: -1;
-    animation: moveBarVertical 12.5s linear infinite alternate; /* 'alternate' for smooth loop, DURATION HALVED */
+    animation: moveBarVertical 12.5s linear infinite alternate;
 }
 
 .moving-bar-vertical-1 {
-    top: -50vh; /* Starts off-screen at top */
+    top: -50vh;
     left: 5%;
-    animation-delay: -6.25s; /* HALVED from -12.5s */
+    animation-delay: -6.25s;
 }
 
 .moving-bar-vertical-2 {
-    top: -50vh; /* Starts off-screen at top */
+    top: -50vh;
     right: 10%;
-    background-color: rgba(var(--dark-red-accent-rgb), 0.2); /* Slightly more transparent */
-    animation-delay: -3.25s; /* HALVED from -6.5s */
-    animation-direction: alternate-reverse; /* For opposite direction loop */
+    background-color: rgba(var(--dark-red-accent-rgb), 0.2);
+    animation-delay: -3.25s;
+    animation-direction: alternate-reverse;
 }
 
 @keyframes moveBarVertical {
     0% { transform: translateY(0); }
-    100% { transform: translateY(100vh); } /* Moves by one viewport height */
+    100% { transform: translateY(100vh); }
 }
 
 .rounded-column {
     position: fixed;
-    background-color: rgba(255, 255, 255, 0.08); /* Kept transparent for subtle fill */
+    background-color: rgba(255, 255, 255, 0.08); /* Subtle transparent fill */
     border-radius: 50%;
-    z-index: -2;
+    z-index: -2; /* Ensures they are behind all other content and bars */
     opacity: 0.7;
-    filter: blur(10px);
+    filter: blur(10px); /* Softens the edges */
 }
 
 .rounded-column-1 {
@@ -130,31 +151,5 @@ body {
 }
 
 .rounded-column-3 {
-    width: 100px;
-    height: 100px;
-    top: 60%;
-    right: 20%;
-    background-color: rgba(243, 156, 18, 0.1);
-    filter: blur(8px);
+    width:
 }
-
-.rounded-column-4 {
-    width: 180px;
-    height: 180px;
-    top: 25%;
-    left: 20%;
-    background-color: rgba(211, 84, 0, 0.1);
-    filter: blur(12px);
-}
-/* --- End Background Elements --- */
-
-/* --- General Layout and Header/Footer/Nav Styles --- */
-.header {
-    background-color: var(--dark-bg);
-    color: var(--light-text);
-    padding: 2.5rem 1.5rem;
-    width: 100%;
-    text-align: center;
-    border-bottom-left-radius: 12px;
-    border-bottom-right-radius: 12px;
-    box-shadow
