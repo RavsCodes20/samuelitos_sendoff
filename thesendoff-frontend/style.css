@@ -366,22 +366,21 @@ body {
 /* Eye-popping H1 style for newsletter article main title */
 .newsletter-article h1 {
     color: var(--light-text);
-    /* Responsive font size: min 1.8rem, max 3rem, scales with viewport width */
-    font-size: clamp(1.8rem, 5vw, 3rem);
+    font-size: clamp(1.8rem, 5vw, 3rem); /* Responsive font size */
     font-weight: 900; /* Extra bold */
-    margin: 1.5rem auto 1rem auto; /* Center with auto margins, adjusted top margin */
-    padding: 0.5rem 1rem; /* Reduced padding slightly to help with height constraint */
+    margin: 1.5rem auto 1rem auto;
+    padding: 0.5rem 1rem;
     background-color: rgba(var(--accent1-rgb), 0.7);
-    border-radius: 12px; /* Slightly more rounded corners */
+    border-radius: 12px;
     text-align: center;
-    text-shadow: 0 0 5px rgba(0, 0, 0, 0.6), 0 0 10px rgba(0, 0, 0, 0.4); /* More dramatic text shadow */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* More prominent box shadow */
-    width: fit-content; /* Shrink background to fit content */
-    line-height: 1.1; /* Tighter line height for dramatic effect */
-    letter-spacing: -0.05em; /* Slightly tighter letter spacing */
-    max-height: 20vh; /* Max height to ensure it doesn't take more than 1/5th of screen */
-    overflow: hidden; /* Hide overflow if text is too long for max-height */
-    display: block; /* Ensure it behaves as a block for margin:auto */
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.6), 0 0 10px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    width: fit-content;
+    line-height: 1.1;
+    letter-spacing: -0.05em;
+    max-height: 20vh;
+    overflow: hidden;
+    display: block;
 }
 
 
@@ -392,33 +391,39 @@ body {
     font-weight: 700;
     margin: 2.5rem auto 1rem auto;
     padding: 0.75rem 1.5rem;
-    background-color: rgba(var(--accent1-rgb), 0.7); /* Transparent background using accent1 */
+    background-color: rgba(var(--accent1-rgb), 0.7);
     border-radius: 8px;
     text-align: center;
-    text-shadow: 0 0 3px var(--accent2), 0 0 5px var(--accent2); /* Added dark orange outline */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle box shadow for depth */
-    border-bottom: none; /* Remove previous border-bottom if present */
-    width: fit-content; /* Shrink background to fit content */
-    cursor: default; /* Not directly clickable, so no pointer */
+    text-shadow: 0 0 3px var(--accent2), 0 0 5px var(--accent2); /* Dark orange outline */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-bottom: none;
+    width: fit-content;
+    cursor: default;
 }
 
 /* Background and depth for text bodies in newsletter articles */
 .newsletter-article p {
-    background-color: rgba(var(--dark-text-rgb), 0.05); /* Very slight transparent dark background */
+    background-color: rgba(var(--dark-text-rgb), 0.05);
     padding: 1rem;
     border-radius: 8px;
-    /* Increased depth and dark orange connection effect */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 8px 16px rgba(0, 0, 0, 0.1), inset 0 -5px 0 var(--accent2);
-    margin-bottom: 1.5rem; /* Space between paragraphs with backgrounds */
-    position: relative; /* Needed for inset shadow or pseudo-elements */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 8px 16px rgba(0, 0, 0, 0.1), inset 0 -5px 0 var(--accent2); /* Increased depth and dark orange connection effect */
+    margin-bottom: 1.5rem;
+    position: relative;
 }
-
 
 /* Highlighted text within newsletter articles */
-#newsletter-display .highlight-text {
+.highlight-text {
     color: var(--accent1);
     font-weight: 600;
+    cursor: pointer; /* Indicate clickability */
+    transition: color 0.2s ease-in-out; /* Smooth color transition on hover */
 }
+
+/* Hover effect for highlighted text */
+.highlight-text:hover {
+    color: var(--accent2); /* Change to dark orange on hover */
+}
+
 
 /* Images within newsletter articles */
 .newsletter-article img.newsletter-image {
@@ -429,6 +434,56 @@ body {
     display: block;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
+/* --- Tooltip Styles --- */
+.custom-tooltip {
+    position: absolute;
+    background-color: var(--dark-bg); /* Dark background */
+    color: var(--light-text);
+    padding: 10px 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); /* Significant depth */
+    z-index: 1000; /* Ensure it's on top of other content */
+    min-width: 150px;
+    text-align: center;
+    opacity: 0; /* Initially hidden */
+    visibility: hidden; /* For screen readers and proper hiding */
+    transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out; /* Smooth fade in/out */
+    transform: translateY(-10px); /* Slight lift animation */
+    pointer-events: none; /* Allows clicks to pass through when hidden */
+}
+
+.custom-tooltip.visible {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto; /* Enable clicks when visible */
+    transform: translateY(0); /* Return to original position */
+}
+
+.custom-tooltip-text {
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: var(--light-text);
+    text-shadow: 0 0 2px var(--accent2); /* Outline for tooltip text */
+}
+
+.tooltip-search-button {
+    background-color: var(--accent1); /* Vibrant orange button */
+    color: var(--light-text);
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    text-shadow: 0 0 2px var(--accent2); /* Outline for button text */
+}
+
+.tooltip-search-button:hover {
+    background-color: var(--accent2); /* Darker orange on hover */
+    transform: translateY(-1px);
+}
+
 
 /*
  * -----------------------------------------------------------
