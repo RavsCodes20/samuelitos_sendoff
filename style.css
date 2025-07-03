@@ -18,6 +18,8 @@
     /* RGB values for transparent colors */
     --dark-red-accent-rgb: 192, 0, 0;
     --accent1-rgb: 243, 156, 18;
+    --dark-text-rgb: 52, 73, 94; /* RGB for dark-text */
+    --light-text-rgb: 255, 255, 255; /* RGB for light-text */
 }
 
 /*
@@ -364,8 +366,8 @@ body {
 /* Eye-popping H1 style for newsletter article main title */
 .newsletter-article h1 {
     color: var(--light-text);
-    /* Responsive font size: min 2.5rem, max 4rem, scales with viewport width */
-    font-size: clamp(2.5rem, 8vw, 4rem);
+    /* Responsive font size: min 2rem, max 3.5rem, scales with viewport width */
+    font-size: clamp(2rem, 6vw, 3.5rem);
     font-weight: 900; /* Extra bold */
     margin: 1.5rem auto 1rem auto; /* Center with auto margins, adjusted top margin */
     padding: 0.5rem 1rem; /* Reduced padding slightly to help with height constraint */
@@ -393,12 +395,22 @@ body {
     background-color: rgba(var(--accent1-rgb), 0.7); /* Transparent background using accent1 */
     border-radius: 8px;
     text-align: center;
-    text-shadow: 0 0 3px rgba(0, 0, 0, 0.4), 0 0 5px rgba(0, 0, 0, 0.2); /* Subtle text shadow */
+    text-shadow: 0 0 3px var(--accent2), 0 0 5px var(--accent2); /* Added dark orange outline */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle box shadow for depth */
     border-bottom: none; /* Remove previous border-bottom if present */
     width: fit-content; /* Shrink background to fit content */
     cursor: default; /* Not directly clickable, so no pointer */
 }
+
+/* Background and depth for text bodies in newsletter articles */
+.newsletter-article p {
+    background-color: rgba(var(--dark-text-rgb), 0.05); /* Very slight transparent dark background */
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle depth */
+    margin-bottom: 1.5rem; /* Space between paragraphs with backgrounds */
+}
+
 
 /* Highlighted text within newsletter articles */
 #newsletter-display .highlight-text {
