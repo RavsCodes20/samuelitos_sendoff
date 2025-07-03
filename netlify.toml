@@ -4,7 +4,7 @@
   # This is the directory where your main website files are located.
   # If your index.html is directly in the root, use "."
   # If it's in a subfolder like 'thesendoff', use "thesendoff".
-  publish = "thesendoff" # Adjust this if your main website files are in a different directory
+  publish = "thesendoff-frontend" # Adjust this if your main website files are in a different directory
 
   # No build command needed for a static HTML/CSS/JS site.
   command = ""
