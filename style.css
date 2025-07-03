@@ -30,7 +30,7 @@
 body {
     font-family: 'Inter', sans-serif;
     background-color: var(--primary-bg);
-    color: var(--light-text);
+    color: var(--light-text); /* Default text color for the body */
     line-height: 1.7;
     margin: 0;
     padding: 0;
@@ -193,7 +193,8 @@ body {
     font-weight: 700;
     margin: 0;
     line-height: 1.2;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+    /* Dark orange outline for white text */
+    text-shadow: 0 0 3px var(--accent2), 0 0 5px var(--accent2);
 }
 
 .navbar {
@@ -215,21 +216,25 @@ body {
     text-decoration: none;
     font-weight: 600;
     border-radius: 6px;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease; /* Added box-shadow transition */
     margin: 0 0.5rem;
     white-space: nowrap;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+    /* Dark orange outline for white text */
+    text-shadow: 0 0 3px var(--accent2), 0 0 5px var(--accent2);
+    cursor: pointer; /* Ensure clickable cursor */
 }
 
 .navbar a:hover {
     background-color: rgba(255, 255, 255, 0.15);
     transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Enhanced hover effect */
 }
 
 .navbar a.active {
     background-color: var(--accent1);
     cursor: default;
     transform: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Keep shadow for active state */
 }
 
 .footer {
@@ -250,7 +255,8 @@ body {
     margin: 0;
     font-size: 0.9rem;
     color: var(--light-text);
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+    /* Dark orange outline for white text */
+    text-shadow: 0 0 3px var(--accent2), 0 0 5px var(--accent2);
 }
 
 /*
@@ -279,7 +285,7 @@ body {
     margin-bottom: 1.25rem;
 }
 
-/* Generic H2 style for containers */
+/* Generic H2 style for containers (used outside of #newsletter-display) */
 .container h2 {
     color: var(--accent2);
     font-size: 2rem;
@@ -292,12 +298,14 @@ body {
 .container a {
     color: var(--accent2);
     text-decoration: none;
-    transition: text-decoration 0.3s ease, color 0.3s ease;
+    transition: text-decoration 0.3s ease, color 0.3s ease, transform 0.2s ease; /* Added transform for reactivity */
+    cursor: pointer; /* Ensure clickable cursor */
 }
 
 .container a:hover {
     text-decoration: underline;
     color: var(--accent1);
+    transform: translateY(-1px); /* Slight lift on hover */
 }
 
 /*
@@ -328,11 +336,15 @@ body {
     font-weight: 600;
     transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    cursor: pointer; /* Ensure clickable cursor */
+    /* Dark orange outline for white text */
+    text-shadow: 0 0 3px var(--accent2), 0 0 5px var(--accent2);
 }
 
 .newsletter-links a:hover {
     background-color: var(--accent2);
     transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .newsletter-links a.active-newsletter {
@@ -349,6 +361,28 @@ body {
     min-height: 200px;
 }
 
+/* Eye-popping H1 style for newsletter article main title */
+.newsletter-article h1 {
+    color: var(--light-text);
+    /* Responsive font size: min 2.5rem, max 4rem, scales with viewport width */
+    font-size: clamp(2.5rem, 8vw, 4rem);
+    font-weight: 900; /* Extra bold */
+    margin: 1.5rem auto 1rem auto; /* Center with auto margins, adjusted top margin */
+    padding: 0.5rem 1rem; /* Reduced padding slightly to help with height constraint */
+    background-color: rgba(var(--accent1-rgb), 0.7);
+    border-radius: 12px; /* Slightly more rounded corners */
+    text-align: center;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.6), 0 0 10px rgba(0, 0, 0, 0.4); /* More dramatic text shadow */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* More prominent box shadow */
+    width: fit-content; /* Shrink background to fit content */
+    line-height: 1.1; /* Tighter line height for dramatic effect */
+    letter-spacing: -0.05em; /* Slightly tighter letter spacing */
+    max-height: 20vh; /* Max height to ensure it doesn't take more than 1/5th of screen */
+    overflow: hidden; /* Hide overflow if text is too long for max-height */
+    display: block; /* Ensure it behaves as a block for margin:auto */
+}
+
+
 /* Eye-popping H2 style for newsletter content headings */
 #newsletter-display h2 {
     color: var(--light-text);
@@ -359,10 +393,11 @@ body {
     background-color: rgba(var(--accent1-rgb), 0.7); /* Transparent background using accent1 */
     border-radius: 8px;
     text-align: center;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-shadow: 0 0 3px rgba(0, 0, 0, 0.4), 0 0 5px rgba(0, 0, 0, 0.2); /* Subtle text shadow */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle box shadow for depth */
     border-bottom: none; /* Remove previous border-bottom if present */
     width: fit-content; /* Shrink background to fit content */
+    cursor: default; /* Not directly clickable, so no pointer */
 }
 
 /* Highlighted text within newsletter articles */
@@ -416,12 +451,14 @@ body {
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     text-align: center;
-    transition: transform 0.2s ease, background-color 0.2s ease;
+    transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease; /* Added box-shadow transition */
+    cursor: pointer; /* Ensure clickable cursor */
 }
 
 .news-link-item:hover {
     transform: translateY(-3px);
     background-color: rgba(44, 62, 80, 0.8);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Enhanced hover effect */
 }
 
 .news-link-item a {
@@ -429,6 +466,8 @@ body {
     text-decoration: none;
     font-weight: 600;
     display: block;
+    /* Dark orange outline for white text */
+    text-shadow: 0 0 3px var(--accent2), 0 0 5px var(--accent2);
 }
 
 /* Tabbed Interface Styles for News App */
@@ -451,6 +490,8 @@ body {
     transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     white-space: nowrap;
+    /* Dark orange outline for white text */
+    text-shadow: 0 0 3px var(--accent2), 0 0 5px var(--accent2);
 }
 
 .tab-button:hover {
@@ -529,581 +570,11 @@ body {
         padding: 10px 15px;
         font-size: 0.9rem;
     }
-}
 
-@media (max-width: 480px) {
-    .header h1 { font-size: 1.8rem; }
-    .container h2 { font-size: 1.5rem; }
-    .container { padding: 20px; }
-    .navbar { flex-direction: column; align-items: center; }
-    .navbar a { margin: 0.25rem 0; width: calc(100% - 2rem); }
-    .news-category h3 { font-size: 1.1rem; }
-    .news-links-grid { grid-template-columns: 1fr; }
-
-    /* Further adjustments for new background elements */
-    .moving-bar { height: 5px; }
-    .moving-bar-vertical { width: 5px; }
-    .rounded-column-1 { width: 70px; height: 70px; }
-    .rounded-column-2 { width: 100px; height: 100px; }
-    .rounded-column-3 { width: 60px; height: 60px; }
-    .rounded-column-4 { width: 90px; height: 90px; }
-
-    .tab-button {
-        width: 100%;
-    }
-}
-
-
-
-
-
-
-style
-CSS
-
-merge the style i uploaded and the style css in this chat. please ensure that there are no bugs
-
-
-
-Show thinking
-The style.css content I provided in my previous response already includes all the styles from the style.css file you uploaded, along with the new "eye-popping header" styles integrated correctly. This was a complete consolidation, so there are no separate parts to merge.
-
-This combined CSS ensures that the new header styles correctly supersede the previous generic h2 styles within the #newsletter-display section, which is the intended behavior for the "eye-popping" effect. There should be no bugs as a result of this integration.
-
-Here is the complete and merged style.css file:
-
-CSS
-
-/*
- * -----------------------------------------------------------
- * Global CSS Variables
- * Defines a set of custom properties for colors and sizes
- * to ensure consistency and easy theme changes.
- * -----------------------------------------------------------
- */
-:root {
-    --primary-bg: #6B7280; /* Steel Gray */
-    --dark-bg: #2C3E50; /* Dark Blue-Gray for Header, Footer, Nav */
-    --light-text: #FFFFFF; /* White */
-    --dark-text: #34495E; /* Dark Blue-Gray for text on light backgrounds */
-    --content-bg: #F8F0E3; /* Parchment */
-    --accent1: #F39C12; /* Vibrant Orange/Gold for highlights/links */
-    --accent2: #D35400; /* Darker Orange/Brown for headings/borders */
-    --dark-red-accent: #C00000; /* Explicit dark red */
-
-    /* RGB values for transparent colors */
-    --dark-red-accent-rgb: 192, 0, 0;
-    --accent1-rgb: 243, 156, 18;
-}
-
-/*
- * -----------------------------------------------------------
- * Base Body & Global Styles
- * General styling for the entire page, including font,
- * background, text color, and basic layout.
- * -----------------------------------------------------------
- */
-body {
-    font-family: 'Inter', sans-serif;
-    background-color: var(--primary-bg);
-    color: var(--light-text);
-    line-height: 1.7;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    min-height: 100vh;
-    position: relative; /* Essential for absolute/fixed positioned children */
-    overflow-x: hidden; /* Prevents horizontal scroll caused by animations */
-}
-
-/*
- * -----------------------------------------------------------
- * Background Animation Elements
- * Styles and animations for the moving bars and rounded columns
- * that create a dynamic background effect.
- * -----------------------------------------------------------
- */
-.moving-bar {
-    position: fixed;
-    height: 8px; /* Thickness of horizontal bars */
-    background-color: rgba(var(--dark-red-accent-rgb), 0.3);
-    z-index: -1; /* Ensures bars stay behind content */
-    animation: moveBarHorizontal 10s linear infinite alternate;
-}
-
-.moving-bar-1 {
-    width: 200vw;
-    top: 15%;
-    left: -50vw;
-    animation-delay: -5s;
-}
-
-.moving-bar-2 {
-    width: 200vw;
-    bottom: 20%;
-    left: -50vw;
-    animation-delay: -2.5s;
-    animation-direction: alternate-reverse;
-}
-
-.moving-bar-3 {
-    width: 200vw;
-    top: 45%;
-    left: -50vw;
-    height: 6px;
-    background-color: rgba(var(--dark-red-accent-rgb), 0.2);
-    animation-delay: -1.75s;
-    animation-direction: alternate;
-}
-
-.moving-bar-4 {
-    width: 200vw;
-    bottom: 40%;
-    left: -50vw;
-    height: 6px;
-    background-color: rgba(var(--dark-red-accent-rgb), 0.2);
-    animation-delay: -4.25s;
-    animation-direction: alternate-reverse;
-}
-
-@keyframes moveBarHorizontal {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(100vw); }
-}
-
-.moving-bar-vertical {
-    position: fixed;
-    width: 8px; /* Thickness of vertical bars */
-    height: 200vh;
-    background-color: rgba(var(--dark-red-accent-rgb), 0.3);
-    z-index: -1;
-    animation: moveBarVertical 12.5s linear infinite alternate;
-}
-
-.moving-bar-vertical-1 {
-    top: -50vh;
-    left: 5%;
-    animation-delay: -6.25s;
-}
-
-.moving-bar-vertical-2 {
-    top: -50vh;
-    right: 10%;
-    background-color: rgba(var(--dark-red-accent-rgb), 0.2);
-    animation-delay: -3.25s;
-    animation-direction: alternate-reverse;
-}
-
-@keyframes moveBarVertical {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(100vh); }
-}
-
-.rounded-column {
-    position: fixed;
-    background-color: rgba(255, 255, 255, 0.08); /* Subtle transparent fill */
-    border-radius: 50%;
-    z-index: -2; /* Ensures they are behind all other content and bars */
-    opacity: 0.7;
-    filter: blur(10px); /* Softens the edges */
-}
-
-.rounded-column-1 {
-    width: 150px;
-    height: 150px;
-    top: 5%;
-    right: 5%;
-}
-
-.rounded-column-2 {
-    width: 200px;
-    height: 200px;
-    bottom: 10%;
-    left: 10%;
-    background-color: rgba(44, 62, 80, 0.1);
-}
-
-.rounded-column-3 {
-    width: 100px;
-    height: 100px;
-    top: 60%;
-    right: 20%;
-    background-color: rgba(var(--accent1-rgb), 0.1);
-    filter: blur(8px);
-}
-
-.rounded-column-4 {
-    width: 180px;
-    height: 180px;
-    top: 25%;
-    left: 20%;
-    background-color: rgba(211, 84, 0, 0.1);
-    filter: blur(12px);
-}
-
-/*
- * -----------------------------------------------------------
- * Header, Navigation, and Footer Styles
- * Basic layout and styling for common site sections.
- * -----------------------------------------------------------
- */
-.header {
-    background-color: var(--dark-bg);
-    color: var(--light-text);
-    padding: 2.5rem 1.5rem;
-    width: 100%;
-    text-align: center;
-    border-bottom-left-radius: 12px;
-    border-bottom-right-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    margin-bottom: 0; /* Aligns with navbar */
-    position: relative;
-    z-index: 1;
-}
-
-.header h1 {
-    font-size: 2.8rem;
-    font-weight: 700;
-    margin: 0;
-    line-height: 1.2;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
-}
-
-.navbar {
-    background-color: var(--dark-bg);
-    width: 100%;
-    padding: 1rem 0;
-    display: flex;
-    justify-content: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    flex-wrap: wrap;
-    margin-bottom: 30px; /* Space before main content */
-    position: relative;
-    z-index: 1;
-}
-
-.navbar a {
-    color: var(--light-text);
-    padding: 0.75rem 1.25rem;
-    text-decoration: none;
-    font-weight: 600;
-    border-radius: 6px;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    margin: 0 0.5rem;
-    white-space: nowrap;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
-}
-
-.navbar a:hover {
-    background-color: rgba(255, 255, 255, 0.15);
-    transform: translateY(-1px);
-}
-
-.navbar a.active {
-    background-color: var(--accent1);
-    cursor: default;
-    transform: none;
-}
-
-.footer {
-    background-color: var(--dark-bg);
-    color: var(--light-text);
-    padding: 1.5rem 1.5rem;
-    width: 100%;
-    text-align: center;
-    border-top-left-radius: 12px;
-    border-top-right-radius: 12px;
-    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.05);
-    margin-top: auto; /* Pushes footer to the bottom */
-    position: relative;
-    z-index: 1;
-}
-
-.footer p {
-    margin: 0;
-    font-size: 0.9rem;
-    color: var(--light-text);
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
-}
-
-/*
- * -----------------------------------------------------------
- * Main Content Container
- * Styles for the central content area, typically on a lighter
- * background.
- * -----------------------------------------------------------
- */
-.container {
-    background-color: var(--content-bg);
-    padding: 30px 40px;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    max-width: 800px;
-    width: 90%;
-    margin-bottom: 30px;
-    box-sizing: border-box; /* Includes padding in width calculation */
-    color: var(--dark-text);
-    position: relative;
-    z-index: 1;
-}
-
-.container p {
-    color: var(--dark-text);
-    margin-bottom: 1.25rem;
-}
-
-/* Generic H2 style for containers */
-.container h2 {
-    color: var(--accent2);
-    font-size: 2rem;
-    font-weight: 700;
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-/* Links within the main content/newsletter article */
-.container a {
-    color: var(--accent2);
-    text-decoration: none;
-    transition: text-decoration 0.3s ease, color 0.3s ease;
-}
-
-.container a:hover {
-    text-decoration: underline;
-    color: var(--accent1);
-}
-
-/*
- * -----------------------------------------------------------
- * Newsletter Specific Styles
- * Styles unique to the newsletter archive and individual
- * newsletter articles.
- * -----------------------------------------------------------
- */
-.newsletter-links {
-    list-style: none;
-    padding: 0;
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-.newsletter-links li {
-    margin-bottom: 15px;
-}
-
-.newsletter-links a {
-    display: inline-block;
-    background-color: var(--accent1);
-    color: var(--light-text);
-    padding: 12px 25px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.newsletter-links a:hover {
-    background-color: var(--accent2);
-    transform: translateY(-2px);
-}
-
-.newsletter-links a.active-newsletter {
-    background-color: var(--accent2);
-    transform: translateY(-1px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-/* Container for dynamically loaded newsletter content */
-#newsletter-display {
-    border-top: 2px dashed var(--primary-bg);
-    padding-top: 30px;
-    margin-top: 30px;
-    min-height: 200px;
-}
-
-/* Eye-popping H2 style for newsletter content headings */
-#newsletter-display h2 {
-    color: var(--light-text);
-    font-size: 2.2rem;
-    font-weight: 700;
-    margin: 2.5rem auto 1rem auto;
-    padding: 0.75rem 1.5rem;
-    background-color: rgba(var(--accent1-rgb), 0.7); /* Transparent background using accent1 */
-    border-radius: 8px;
-    text-align: center;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    border-bottom: none; /* Remove previous border-bottom if present */
-    width: fit-content; /* Shrink background to fit content */
-}
-
-/* Highlighted text within newsletter articles */
-#newsletter-display .highlight-text {
-    color: var(--accent1);
-    font-weight: 600;
-}
-
-/* Images within newsletter articles */
-.newsletter-article img.newsletter-image {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
-    margin: 1.5rem auto;
-    display: block;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-/*
- * -----------------------------------------------------------
- * News App Specific Styles
- * Styles for the news application section, including categories,
- * grid layouts, and tabbed navigation.
- * -----------------------------------------------------------
- */
-.news-category {
-    margin-bottom: 2rem;
-}
-
-/* H3 style for news categories within the app */
-.news-category h3 {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: var(--accent1);
-    margin-bottom: 1rem;
-    border-bottom: 1px solid rgba(var(--dark-red-accent-rgb), 0.3);
-    padding-bottom: 0.5rem;
-    text-align: center;
-}
-
-.news-links-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 15px;
-    margin-top: 1rem;
-}
-
-.news-link-item {
-    background-color: var(--dark-bg);
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    transition: transform 0.2s ease, background-color 0.2s ease;
-}
-
-.news-link-item:hover {
-    transform: translateY(-3px);
-    background-color: rgba(44, 62, 80, 0.8);
-}
-
-.news-link-item a {
-    color: var(--light-text);
-    text-decoration: none;
-    font-weight: 600;
-    display: block;
-}
-
-/* Tabbed Interface Styles for News App */
-.tab-buttons {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 25px;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-.tab-button {
-    background-color: var(--primary-bg);
-    color: var(--light-text);
-    padding: 12px 20px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: 600;
-    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    white-space: nowrap;
-}
-
-.tab-button:hover {
-    background-color: var(--dark-bg);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-}
-
-.tab-button.active {
-    background-color: var(--accent1);
-    transform: translateY(-1px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    border-bottom: 3px solid var(--accent2);
-}
-
-.tab-content {
-    animation: fadeIn 0.5s ease-out;
-}
-
-.tab-content.hidden {
-    display: none;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* Spinner for loading indicator */
-.spinner {
-  border: 4px solid rgba(0, 0, 0, 0.1);
-  border-left-color: var(--accent1);
-  border-radius: 50%;
-  width: 30px;
-  height: 30px;
-  animation: spin 1s linear infinite;
-  margin: 10px auto;
-}
-
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-/*
- * -----------------------------------------------------------
- * Responsive Adjustments
- * Media queries for adapting the layout and styles to
- * different screen sizes (mobile first approach).
- * -----------------------------------------------------------
- */
-@media (max-width: 768px) {
-    .header h1 { font-size: 2.2rem; }
-    .navbar { padding: 0.75rem 0; }
-    .navbar a { margin: 0.5rem 0.5rem; font-size: 0.9rem; }
-    .container { padding: 25px 25px; width: 95%; }
-    .header, .footer { padding-left: 1rem; padding-right: 1rem; }
-    .container h2 { font-size: 1.8rem; }
-    .news-category h3 { font-size: 1.3rem; }
-
-    /* Adjustments for new background elements */
-    .moving-bar { height: 6px; }
-    .moving-bar-1 { top: 10%; }
-    .moving-bar-2 { bottom: 15%; }
-    .moving-bar-3 { top: 40%; }
-    .moving-bar-4 { bottom: 35%; }
-    .moving-bar-vertical { width: 6px; }
-    .moving-bar-vertical-1 { left: 7%; }
-    .moving-bar-vertical-2 { right: 12%; }
-    .rounded-column-1 { width: 100px; height: 100px; top: 2%; right: 2%; }
-    .rounded-column-2 { width: 150px; height: 150px; bottom: 5%; left: 5%; }
-    .rounded-column-3 { width: 80px; height: 80px; top: 55%; right: 15%; }
-    .rounded-column-4 { width: 130px; height: 130px; top: 20%; left: 15%; }
-
-    .tab-button {
-        padding: 10px 15px;
-        font-size: 0.9rem;
+    /* H1 in newsletter article responsive adjustment */
+    .newsletter-article h1 {
+        font-size: clamp(2rem, 7vw, 3rem); /* Smaller on smaller screens */
+        padding: 0.4rem 0.8rem;
     }
 }
 
@@ -1126,5 +597,11 @@ body {
 
     .tab-button {
         width: 100%;
+    }
+
+    /* H1 in newsletter article very small screen adjustment */
+    .newsletter-article h1 {
+        font-size: clamp(1.8rem, 6vw, 2.5rem); /* Even smaller on very small screens */
+        padding: 0.3rem 0.6rem;
     }
 }
