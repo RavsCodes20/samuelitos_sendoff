@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>News App</title>
+    <title>The Sendoff 🔊 - News App</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css"> <!-- Link to external stylesheet -->
 </head>
-<body class="news-app-page"> <!-- Added class for JavaScript targeting -->
+<body class="news-app-page">
     <!-- Background Elements -->
     <div class="moving-bar moving-bar-1"></div>
     <div class="moving-bar moving-bar-2"></div>
@@ -24,7 +24,7 @@
     <div class="rounded-column rounded-column-4"></div>
 
     <div class="header">
-        <h1>News Link Generator 🔗</h1>
+        <h1>News App 📱</h1>
     </div>
 
     <nav class="navbar">
@@ -36,74 +36,100 @@
     </nav>
 
     <div class="container">
-        <h2>Quick Links to Top News Sites</h2>
-        <p>Explore some of the most prominent news sources in the United States by category. Click on any link to visit their website and stay informed.</p>
+        <h2>Explore News by Category</h2>
 
-        <div class="news-category">
-            <h3>General News</h3>
-            <div class="news-links-grid">
-                <div class="news-link-item"><a href="https://www.nytimes.com/" target="_blank">The New York Times</a></div>
-                <div class="news-link-item"><a href="https://www.cnn.com/" target="_blank">CNN</a></div>
-                <div class="news-link-item"><a href="https://www.foxnews.com/" target="_blank">Fox News</a></div>
-                <div class="news-link-item"><a href="https://www.usatoday.com/" target="_blank">USA Today</a></div>
-                <div class="news-link-item"><a href="https://www.cbsnews.com/" target="_blank">CBS News</a></div>
-                <div class="news-link-item"><a href="https://www.npr.org/" target="_blank">NPR</a></div>
-                <div class="news-link-item"><a href="https://www.washingtonpost.com/" target="_blank">The Washington Post</a></div>
-                <div class="news-link-item"><a href="https://news.yahoo.com/" target="_blank">Yahoo News</a></div>
+        <div class="tab-buttons">
+            <button class="tab-button active" data-category="global">Global</button>
+            <button class="tab-button" data-category="us-politics">U.S. Politics</button>
+            <button class="tab-button" data-category="us-domestic">U.S. Domestic</button>
+            <button class="tab-button" data-category="regional">Regional</button>
+        </div>
+
+        <div id="global-news" class="tab-content">
+            <div class="news-category">
+                <h3>Global News</h3>
+                <div class="news-links-grid">
+                    <div class="news-link-item"><a href="#">Iran-Israel Conflict Escalates</a></div>
+                    <div class="news-link-item"><a href="#">Fragile Ceasefire Announced</a></div>
+                    <div class="news-link-item"><a href="#">USAID Shuts Down</a></div>
+                    <!-- Add more global news items as needed -->
+                </div>
             </div>
         </div>
 
-        <div class="news-category">
-            <h3>Business & Finance</h3>
-            <div class="news-links-grid">
-                <div class="news-link-item"><a href="https://www.cnbc.com/" target="_blank">CNBC</a></div>
-                <div class="news-link-item"><a href="https://www.bloomberg.com/" target="_blank">Bloomberg</a></div>
-                <div class="news-link-item"><a href="https://www.reuters.com/" target="_blank">Reuters</a></div>
-                <div class="news-link-item"><a href="https://www.forbes.com/" target="_blank">Forbes</a></div>
-                <div class="news-link-item"><a href="https://www.businessinsider.com/" target="_blank">Business Insider</a></div>
+        <div id="us-politics-news" class="tab-content hidden">
+            <div class="news-category">
+                <h3>U.S. Politics</h3>
+                <div class="news-links-grid">
+                    <div class="news-link-item"><a href="#">War Powers Resolution Debate</a></div>
+                    <div class="news-link-item"><a href="#">President's Domestic Bill Passes Senate</a></div>
+                    <div class="news-link-item"><a href="#">Supreme Court Rulings</a></div>
+                    <!-- Add more U.S. politics news items as needed -->
+                </div>
             </div>
         </div>
 
-        <div class="news-category">
-            <h3>Investigative & Public Interest</h3>
-            <div class="news-links-grid">
-                <div class="news-link-item"><a href="https://www.propublica.org/" target="_blank">ProPublica</a></div>
-                <div class="news-link-item"><a href="https://themarshallproject.org/" target="_blank">The Marshall Project</a></div>
-                <div class="news-link-item"><a href="https://the19thnews.org/" target="_blank">The 19th News</a></div>
+        <div id="us-domestic-news" class="tab-content hidden">
+            <div class="news-category">
+                <h3>U.S. Domestic</h3>
+                <div class="news-links-grid">
+                    <div class="news-link-item"><a href="#">Severe Heatwave Grips Nation</a></div>
+                    <div class="news-link-item"><a href="#">Roads Buckle in Midwest</a></div>
+                    <div class="news-link-item"><a href="#">Wildfire Activity High</a></div>
+                    <div class="news-link-item"><a href="#">Daytime Fireball Sighting</a></div>
+                    <!-- Add more U.S. domestic news items as needed -->
+                </div>
             </div>
         </div>
 
-        <div class="news-category">
-            <h3>International & Specific</h3>
-            <div class="news-links-grid">
-                <div class="news-link-item"><a href="https://www.bbc.com/news" target="_blank">BBC News (US Edition)</a></div>
-                <div class="news-link-item"><a href="https://www.theguardian.com/us" target="_blank">The Guardian (US Edition)</a></div>
-                <div class="news-link-item"><a href="https://www.usnews.com/" target="_blank">U.S. News & World Report</a></div>
+        <div id="regional-news" class="tab-content hidden">
+            <div class="news-category">
+                <h3>Regional Focus</h3>
+                <div class="news-links-grid">
+                    <div class="news-link-item"><a href="#">NYC Heat Emergency Plan</a></div>
+                    <div class="news-link-item"><a href="#">Philadelphia Work Stoppage</a></div>
+                    <div class="news-link-item"><a href="#">NY Tornado Kills Three</a></div>
+                    <div class="news-link-item"><a href="#">Idaho Firefighter Ambush</a></div>
+                    <div class="news-link-item"><a href="#">Lake Tahoe Boat Capsizes</a></div>
+                    <div class="news-link-item"><a href="#">Oregon DOT Layoffs</a></div>
+                    <div class="news-link-item"><a href="#">Pramila Jayapal on ICE</a></div>
+                    <div class="news-link-item"><a href="#">Atlanta Airport Delays</a></div>
+                    <div class="news-link-item"><a href="#">Atlanta Medical Center Demolition</a></div>
+                    <div class="news-link-item"><a href="#">North American Monsoon</a></div>
+                    <div class="news-link-item"><a href="#">Southwest Airlines Layoffs</a></div>
+                    <div class="news-link-item"><a href="#">Midwest Real Estate Boom</a></div>
+                    <div class="news-link-item"><a href="#">Timberwolves/Lynx Sale Approved</a></div>
+                    <div class="news-link-item"><a href="#">NYC Mayoral Primary Upset</a></div>
+                    <div class="news-link-item"><a href="#">Tenant Credit Program</a></div>
+                    <div class="news-link-item"><a href="#">LGBTQ+ Pride Marches</a></div>
+                    <div class="news-link-item"><a href="#">LA ICE Raids Protests</a></div>
+                    <div class="news-link-item"><a href="#">Wolf Fire Riverside County</a></div>
+                    <div class="news-link-item"><a href="#">Clayton County Teen Shot</a></div>
+                    <div class="news-link-item"><a href="#">Atlanta Park Shooting</a></div>
+                    <div class="news-link-item"><a href="#">North Texas Lake Tragedies</a></div>
+                    <div class="news-link-item"><a href="#">THC Ban Veto Rift</a></div>
+                    <div class="news-link-item"><a href="#">Tesla Robotaxis Debut</a></div>
+                    <!-- Add more regional news items as needed -->
+                </div>
             </div>
         </div>
 
-        <div class="gemini-app-section">
-            <h2 class="mt-8">Ask Gemini</h2>
-            <p>Enter a prompt below and get a response from the Gemini AI model.</p>
-            <textarea id="gemini-prompt" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-accent1" rows="4" placeholder="e.g., 'Summarize recent global political developments in 100 words.'"></textarea>
-            <button id="send-prompt-btn" class="mt-4 w-full bg-accent1 text-light-text py-3 rounded-lg font-bold hover:bg-accent2 transition transform hover:-translate-y-1 shadow-md">
-                Send Prompt to Gemini
-            </button>
-            <div id="loading-indicator" class="hidden text-center mt-4 text-dark-text">
-                <p>Loading response from Gemini...</p>
-                <div class="spinner"></div>
-            </div>
-            <div id="gemini-response-display" class="mt-6 p-4 bg-gray-100 rounded-lg shadow-inner text-dark-text min-h-[100px] flex items-center justify-center text-center">
-                <p class="text-gray-500">Your AI response will appear here.</p>
+        <!-- AI Content Generation Section for News App -->
+        <div class="my-8 text-center">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">Generate AI News Insight</h2>
+            <p class="text-gray-700 mb-6">Click the button below to get a creative AI-generated thought related to current events!</p>
+            <button id="generateAiContent" class="ai-button">Generate Insight</button>
+            <div id="aiOutput" class="ai-output mt-6">
+                <!-- AI generated content will appear here -->
             </div>
         </div>
 
     </div>
 
     <div class="footer">
-        <p>&copy; 2025 Samuel Ravelo Jr. All rights reserved.</p>
+        <p>&copy; 2025 The Sendoff 🔊. All rights reserved.</p>
     </div>
 
-    <script src="script.js"></script>
+    <script src="script.js"></script> <!-- Link to external JavaScript file -->
 </body>
 </html>
