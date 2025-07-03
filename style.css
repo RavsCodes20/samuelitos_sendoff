@@ -191,7 +191,7 @@ body {
 }
 
 .header h1 {
-    font-size: 2.2rem;
+    font-size: 2.8rem;
     font-weight: 700;
     margin: 0;
     line-height: 1.2;
@@ -366,8 +366,8 @@ body {
 /* Eye-popping H1 style for newsletter article main title */
 .newsletter-article h1 {
     color: var(--light-text);
-    /* Responsive font size: min 2rem, max 3.5rem, scales with viewport width */
-    font-size: clamp(2rem, 6vw, 3.5rem);
+    /* Responsive font size: min 1.8rem, max 3rem, scales with viewport width */
+    font-size: clamp(1.8rem, 5vw, 3rem);
     font-weight: 900; /* Extra bold */
     margin: 1.5rem auto 1rem auto; /* Center with auto margins, adjusted top margin */
     padding: 0.5rem 1rem; /* Reduced padding slightly to help with height constraint */
@@ -407,8 +407,10 @@ body {
     background-color: rgba(var(--dark-text-rgb), 0.05); /* Very slight transparent dark background */
     padding: 1rem;
     border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle depth */
+    /* Increased depth and dark orange connection effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 8px 16px rgba(0, 0, 0, 0.1), inset 0 -5px 0 var(--accent2);
     margin-bottom: 1.5rem; /* Space between paragraphs with backgrounds */
+    position: relative; /* Needed for inset shadow or pseudo-elements */
 }
 
 
@@ -585,7 +587,7 @@ body {
 
     /* H1 in newsletter article responsive adjustment */
     .newsletter-article h1 {
-        font-size: clamp(2rem, 7vw, 3rem); /* Smaller on smaller screens */
+        font-size: clamp(1.8rem, 7vw, 2.5rem); /* Adjusted font size for smaller screens */
         padding: 0.4rem 0.8rem;
     }
 }
@@ -613,7 +615,7 @@ body {
 
     /* H1 in newsletter article very small screen adjustment */
     .newsletter-article h1 {
-        font-size: clamp(1.8rem, 6vw, 2.5rem); /* Even smaller on very small screens */
+        font-size: clamp(1.6rem, 5vw, 2rem); /* Even smaller on very small screens */
         padding: 0.3rem 0.6rem;
     }
 }
