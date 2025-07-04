@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Sendoff 🔊 - Newsletters Archive</title>
+    <title>Newsletters Archive</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css"> <!-- Link to external stylesheet -->
+    <link rel="stylesheet" href="style.css">
 </head>
-<body class="newsletters-page"> <!-- Added class for JavaScript targeting -->
+<body>
     <!-- Background Elements -->
     <div class="moving-bar moving-bar-1"></div>
     <div class="moving-bar moving-bar-2"></div>
@@ -28,18 +28,17 @@
     </div>
 
     <nav class="navbar">
-        <a href="index.html">Home</a>
-        <a href="newsletters.html" class="active">Newsletters</a>
-        <a href="news_app.html">News App</a>
-        <a href="contributors.html">Contributors</a>
-        <a href="about.html">About</a>
+        <a href="index.html" aria-label="Home">🏠 Home</a>
+        <a href="newsletters.html" class="active" aria-label="Newsletters">📰 Newsletters</a>
+        <a href="contributors.html" aria-label="Contributors">✍️ Contributors</a>
+        <a href="about.html" aria-label="About">ℹ️ About</a>
     </nav>
 
     <div class="container">
         <h2>Select a Newsletter:</h2>
         <ul class="newsletter-links">
             <li><a href="#" data-newsletter-path="may_2025_content.html">May 2025: A Month of Mayhem, a Future Uncertain</a></li>
-            <li><a href="#" data-newsletter-path="june_2025_content.html">June 2025: A Month of Escalation, Extremes, and Local Impact</a></li>
+            <!-- Add more newsletter links here -->
         </ul>
 
         <div id="newsletter-display">
@@ -47,11 +46,9 @@
             <p style="text-align: center; color: var(--dark-text);">Click on a newsletter title above to read its content.</p>
         </div>
     </div>
-
     <div class="footer">
-        <p>&copy; 2025 The Sendoff 🔊. All rights reserved.</p>
+        <p>&copy; 2025 Samuel Ravelo Jr. All rights reserved.</p>
     </div>
-
-    <script src="script.js"></script> <!-- Link to external JavaScript file -->
+    <script src="script.js"></script>
 </body>
 </html>
