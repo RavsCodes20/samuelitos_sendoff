@@ -1,37 +1,21 @@
-/*
- * -----------------------------------------------------------
- * Global CSS Variables
- * Defines a set of custom properties for colors and sizes
- * to ensure consistency and easy theme changes.
- * -----------------------------------------------------------
- */
-:root {
-    --primary-bg: #6B7280; /* Steel Gray */
-    --dark-bg: #2C3E50; /* Dark Blue-Gray for Header, Footer, Nav */
-    --light-text: #FFFFFF; /* White */
-    --dark-text: #34495E; /* Dark Blue-Gray for text on light backgrounds */
-    --content-bg: #F8F0E3; /* Parchment */
-    --accent1: #F39C12; /* Vibrant Orange/Gold for highlights/links */
-    --accent2: #D35400; /* Darker Orange/Brown for headings/borders */
-    --dark-red-accent: #C00000; /* Explicit dark red */
+/* style.css */
 
-    /* RGB values for transparent colors */
-    --dark-red-accent-rgb: 192, 0, 0;
-    --accent1-rgb: 243, 156, 18;
-    --dark-text-rgb: 52, 73, 94; /* RGB for dark-text */
-    --light-text-rgb: 255, 255, 255; /* RGB for light-text */
+:root {
+    /* Dark Mode Color Palette */
+    --primary-bg: #1A1A1D; /* Deep Charcoal for main background */
+    --dark-bg: #0D0D0F; /* Even darker, almost black for Header, Footer, Nav */
+    --light-text: #E0E0E0; /* Light gray for text on dark backgrounds */
+    --dark-text: #C0C0C0; /* Slightly darker light gray for text on content backgrounds */
+    --content-bg: #2C2C30; /* Dark gray for content areas */
+    --accent1: #F39C12; /* Vibrant Orange/Gold - remains vibrant */
+    --accent2: #E67E22; /* Slightly brighter orange/brown for headings/borders */
+    --dark-red-accent: #C00000; /* Explicit dark red - remains */
+    --dark-red-accent-rgb: 192, 0, 0; /* RGB for transparent dark red - remains */
 }
 
-/*
- * -----------------------------------------------------------
- * Base Body & Global Styles
- * General styling for the entire page, including font,
- * background, text color, and basic layout.
- * -----------------------------------------------------------
- */
 body {
     font-family: 'Inter', sans-serif;
-    background-color: var(--primary-bg);
+    background-color: var(--primary-bg); /* Use new dark primary background */
     color: var(--light-text); /* Default text color for the body */
     line-height: 1.7;
     margin: 0;
@@ -41,36 +25,31 @@ body {
     justify-content: flex-start;
     align-items: center;
     min-height: 100vh;
-    position: relative; /* Essential for absolute/fixed positioned children */
-    overflow-x: hidden; /* Prevents horizontal scroll caused by animations */
+    position: relative; /* Needed for positioning background elements */
+    overflow-x: hidden; /* Prevent horizontal scroll from animations */
 }
 
-/*
- * -----------------------------------------------------------
- * Background Animation Elements
- * Styles and animations for the moving bars and rounded columns
- * that create a dynamic background effect.
- * -----------------------------------------------------------
- */
+/* --- Background Elements --- */
+/* Moving bars remain the same as requested, ensuring they stand out on dark background */
 .moving-bar {
     position: fixed;
     height: 8px; /* Thickness of horizontal bars */
-    background-color: rgba(var(--dark-red-accent-rgb), 0.3);
-    z-index: -1; /* Ensures bars stay behind content */
+    background-color: rgba(var(--dark-red-accent-rgb), 0.3); /* Dark red, somewhat transparent */
+    z-index: -1;
     animation: moveBarHorizontal 10s linear infinite alternate;
 }
 
 .moving-bar-1 {
-    width: 200vw;
+    width: 200vw; /* Wider than screen */
     top: 15%;
-    left: -50vw;
+    left: -50vw; /* Starts off-screen to the left */
     animation-delay: -5s;
 }
 
 .moving-bar-2 {
     width: 200vw;
     bottom: 20%;
-    left: -50vw;
+    left: -50vw; /* Starts off-screen to the left */
     animation-delay: -2.5s;
     animation-direction: alternate-reverse;
 }
@@ -78,63 +57,64 @@ body {
 .moving-bar-3 {
     width: 200vw;
     top: 45%;
-    left: -50vw;
+    left: -50vw; /* Starts off-screen to the left */
     height: 6px;
-    background-color: rgba(var(--dark-red-accent-rgb), 0.2);
     animation-delay: -1.75s;
+    background-color: rgba(var(--dark-red-accent-rgb), 0.2); /* Slightly more transparent */
     animation-direction: alternate;
 }
 
 .moving-bar-4 {
     width: 200vw;
     bottom: 40%;
-    left: -50vw;
+    left: -50vw; /* Starts off-screen to the left */
     height: 6px;
-    background-color: rgba(var(--dark-red-accent-rgb), 0.2);
     animation-delay: -4.25s;
+    background-color: rgba(var(--dark-red-accent-rgb), 0.2); /* Slightly more transparent */
     animation-direction: alternate-reverse;
 }
 
 @keyframes moveBarHorizontal {
     0% { transform: translateX(0); }
-    100% { transform: translateX(100vw); }
+    100% { transform: translateX(100vw); } /* Moves by one viewport width */
 }
 
 .moving-bar-vertical {
     position: fixed;
     width: 8px; /* Thickness of vertical bars */
-    height: 200vh;
-    background-color: rgba(var(--dark-red-accent-rgb), 0.3);
+    height: 200vh; /* Taller than screen */
+    background-color: rgba(var(--dark-red-accent-rgb), 0.3); /* Dark red, somewhat transparent */
     z-index: -1;
     animation: moveBarVertical 12.5s linear infinite alternate;
 }
 
 .moving-bar-vertical-1 {
-    top: -50vh;
+    top: -50vh; /* Starts off-screen at top */
     left: 5%;
     animation-delay: -6.25s;
 }
 
 .moving-bar-vertical-2 {
-    top: -50vh;
+    top: -50vh; /* Starts off-screen at top */
     right: 10%;
-    background-color: rgba(var(--dark-red-accent-rgb), 0.2);
     animation-delay: -3.25s;
     animation-direction: alternate-reverse;
+    background-color: rgba(var(--dark-red-accent-rgb), 0.2); /* Slightly more transparent */
 }
 
 @keyframes moveBarVertical {
     0% { transform: translateY(0); }
-    100% { transform: translateY(100vh); }
+    100% { transform: translateY(100vh); } /* Moves by one viewport height */
 }
 
 .rounded-column {
     position: fixed;
-    background-color: rgba(255, 255, 255, 0.08); /* Subtle transparent fill */
+    /* Adjusted for dark mode - subtle dark transparent fill */
+    background-color: rgba(255, 255, 255, 0.05); /* Very subtle white transparency */
     border-radius: 50%;
-    z-index: -2; /* Ensures they are behind all other content and bars */
+    z-index: -2;
     opacity: 0.7;
-    filter: blur(10px); /* Softens the edges */
+    filter: blur(10px);
 }
 
 .rounded-column-1 {
@@ -149,7 +129,7 @@ body {
     height: 200px;
     bottom: 10%;
     left: 10%;
-    background-color: rgba(44, 62, 80, 0.1);
+    background-color: rgba(44, 62, 80, 0.08); /* Darker subtle transparency */
 }
 
 .rounded-column-3 {
@@ -157,7 +137,7 @@ body {
     height: 100px;
     top: 60%;
     right: 20%;
-    background-color: rgba(var(--accent1-rgb), 0.1);
+    background-color: rgba(243, 156, 18, 0.08); /* Accent color subtle transparency */
     filter: blur(8px);
 }
 
@@ -166,433 +146,218 @@ body {
     height: 180px;
     top: 25%;
     left: 20%;
-    background-color: rgba(211, 84, 0, 0.1);
+    background-color: rgba(211, 84, 0, 0.08); /* Accent color subtle transparency */
     filter: blur(12px);
 }
+/* --- End Background Elements --- */
 
-/*
- * -----------------------------------------------------------
- * Header, Navigation, and Footer Styles
- * Basic layout and styling for common site sections.
- * -----------------------------------------------------------
- */
+/* --- General Layout and Header/Footer/Nav Styles --- */
 .header {
-    background-color: var(--dark-bg);
+    background-color: var(--dark-bg); /* Use new dark background */
     color: var(--light-text);
     padding: 2.5rem 1.5rem;
     width: 100%;
     text-align: center;
     border-bottom-left-radius: 12px;
     border-bottom-right-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    margin-bottom: 0; /* Aligns with navbar */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Darker shadow for dark mode */
+    margin-bottom: 0;
     position: relative;
     z-index: 1;
 }
-
 .header h1 {
     font-size: 2.8rem;
     font-weight: 700;
     margin: 0;
     line-height: 1.2;
-    /* Dark orange outline for white text */
-    text-shadow: 0 0 3px var(--accent2), 0 0 5px var(--accent2);
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.9); /* More prominent text shadow */
 }
-
 .navbar {
-    background-color: var(--dark-bg);
+    background-color: var(--dark-bg); /* Use new dark background */
     width: 100%;
     padding: 1rem 0;
     display: flex;
     justify-content: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Darker shadow */
     flex-wrap: wrap;
-    margin-bottom: 30px; /* Space before main content */
+    margin-bottom: 30px;
     position: relative;
     z-index: 1;
 }
-
 .navbar a {
     color: var(--light-text);
     padding: 0.75rem 1.25rem;
     text-decoration: none;
     font-weight: 600;
     border-radius: 6px;
-    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease; /* Added box-shadow transition */
+    transition: background-color 0.3s ease, transform 0.2s ease;
     margin: 0 0.5rem;
     white-space: nowrap;
-    /* Dark orange outline for white text */
-    text-shadow: 0 0 3px var(--accent2), 0 0 5px var(--accent2);
-    cursor: pointer; /* Ensure clickable cursor */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
 }
-
 .navbar a:hover {
-    background-color: rgba(255, 255, 255, 0.15);
+    background-color: rgba(255, 255, 255, 0.1); /* Slightly less opaque hover for dark mode */
     transform: translateY(-1px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Enhanced hover effect */
 }
-
 .navbar a.active {
     background-color: var(--accent1);
     cursor: default;
     transform: none;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Keep shadow for active state */
+}
+.container {
+    background-color: var(--content-bg); /* Use new dark content background */
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Darker shadow */
+    max-width: 960px; /* Increased max-width for larger screens */
+    width: 60%; /* This ensures 20% margin on each side on larger screens */
+    margin-bottom: 30px;
+    box-sizing: border-box;
+    color: var(--dark-text); /* Use new dark text color for content */
+    position: relative;
+    z-index: 1;
+}
+.container p {
+    color: var(--dark-text);
+    margin-bottom: 1.25rem;
+}
+.container h2 {
+    color: var(--accent2); /* Use accent2 for headings */
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-align: center;
+}
+/* Links within the main content/newsletter article */
+.container a {
+    color: var(--accent1); /* Use accent1 for links to stand out on dark background */
+    text-decoration: none;
+    transition: text-decoration 0.3s ease, color 0.3s ease;
+}
+.container a:hover {
+    text-decoration: underline;
+    color: var(--light-text); /* Lighter text on hover for links */
 }
 
 .footer {
-    background-color: var(--dark-bg);
+    background-color: var(--dark-bg); /* Use new dark background */
     color: var(--light-text);
     padding: 1.5rem 1.5rem;
     width: 100%;
     text-align: center;
     border-top-left-radius: 12px;
     border-top-right-radius: 12px;
-    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.05);
-    margin-top: auto; /* Pushes footer to the bottom */
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2); /* Darker shadow */
+    margin-top: auto;
     position: relative;
     z-index: 1;
 }
-
 .footer p {
     margin: 0;
     font-size: 0.9rem;
     color: var(--light-text);
-    /* Dark orange outline for white text */
-    text-shadow: 0 0 3px var(--accent2), 0 0 5px var(--accent2);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
 }
 
-/*
- * -----------------------------------------------------------
- * Main Content Container
- * Styles for the central content area, typically on a lighter
- * background.
- * -----------------------------------------------------------
- */
-.container {
-    background-color: var(--content-bg);
-    padding: 30px 40px;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    max-width: 800px;
-    width: 90%;
-    margin-bottom: 30px;
-    box-sizing: border-box; /* Includes padding in width calculation */
-    color: var(--dark-text);
-    position: relative;
-    z-index: 1;
-}
-
-.container p {
-    color: var(--dark-text);
-    margin-bottom: 1.25rem;
-}
-
-/* Generic H2 style for containers (used outside of #newsletter-display) */
-.container h2 {
-    color: var(--accent2);
-    font-size: 2rem;
-    font-weight: 700;
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-/* Links within the main content/newsletter article */
-.container a {
-    color: var(--accent2);
-    text-decoration: none;
-    transition: text-decoration 0.3s ease, color 0.3s ease, transform 0.2s ease; /* Added transform for reactivity */
-    cursor: pointer; /* Ensure clickable cursor */
-}
-
-.container a:hover {
-    text-decoration: underline;
-    color: var(--accent1);
-    transform: translateY(-1px); /* Slight lift on hover */
-}
-
-/*
- * -----------------------------------------------------------
- * Newsletter Specific Styles
- * Styles unique to the newsletter archive and individual
- * newsletter articles.
- * -----------------------------------------------------------
- */
+/* --- Newsletter Specific Styles --- */
 .newsletter-links {
     list-style: none;
     padding: 0;
     text-align: center;
     margin-bottom: 30px;
 }
-
 .newsletter-links li {
     margin-bottom: 15px;
 }
-
 .newsletter-links a {
-    display: inline-block;
-    background-color: var(--accent1);
+    background-color: var(--accent1); /* Use accent1 for buttons */
     color: var(--light-text);
     padding: 12px 25px;
     border-radius: 8px;
     text-decoration: none;
     font-weight: 600;
-    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    cursor: pointer; /* Ensure clickable cursor */
-    /* Dark orange outline for white text */
-    text-shadow: 0 0 3px var(--accent2), 0 0 5px var(--accent2);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Darker shadow */
 }
-
 .newsletter-links a:hover {
-    background-color: var(--accent2);
+    background-color: var(--accent2); /* Accent2 on hover */
     transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
-
 .newsletter-links a.active-newsletter {
     background-color: var(--accent2);
     transform: translateY(-1px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Darker shadow */
 }
-
-/* Container for dynamically loaded newsletter content */
 #newsletter-display {
-    border-top: 2px dashed var(--primary-bg);
+    border-top: 2px dashed var(--primary-bg); /* Use primary-bg for border to blend with dark mode */
     padding-top: 30px;
     margin-top: 30px;
     min-height: 200px;
 }
-
-/* Eye-popping H1 style for newsletter article main title */
-.newsletter-article h1 {
-    color: var(--light-text);
-    font-size: clamp(1.8rem, 5vw, 3rem); /* Responsive font size */
-    font-weight: 900; /* Extra bold */
-    margin: 1.5rem auto 1rem auto;
-    padding: 0.5rem 1rem;
-    background-color: rgba(var(--accent1-rgb), 0.7);
-    border-radius: 12px;
-    text-align: center;
-    text-shadow: 0 0 5px rgba(0, 0, 0, 0.6), 0 0 10px rgba(0, 0, 0, 0.4);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-    width: fit-content;
-    line-height: 1.1;
-    letter-spacing: -0.05em;
-    max-height: 20vh;
-    overflow: hidden;
-    display: block;
-}
-
-
-/* Eye-popping H2 style for newsletter content headings */
 #newsletter-display h2 {
-    color: var(--light-text);
-    font-size: 2.2rem;
+    color: var(--accent2);
+    font-size: 1.6rem;
     font-weight: 700;
-    margin: 2.5rem auto 1rem auto;
-    padding: 0.75rem 1.5rem;
-    background-color: rgba(var(--accent1-rgb), 0.7);
-    border-radius: 8px;
-    text-align: center;
-    text-shadow: 0 0 3px var(--accent2), 0 0 5px var(--accent2); /* Dark orange outline */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    border-bottom: none;
-    width: fit-content;
-    cursor: default;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--accent1);
 }
-
-/* Background and depth for text bodies in newsletter articles */
-.newsletter-article p {
-    background-color: rgba(var(--dark-text-rgb), 0.05);
-    padding: 1rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 8px 16px rgba(0, 0, 0, 0.1), inset 0 -5px 0 var(--accent2);
-    margin-bottom: 1.5rem;
-    position: relative;
-}
-
-/* Highlighted text within newsletter articles */
-.highlight-text {
-    color: var(--accent1);
+#newsletter-display .highlight-text {
+    color: var(--accent1); /* Highlight text remains accent1 */
     font-weight: 600;
-    cursor: pointer; /* Indicate clickability */
-    transition: color 0.2s ease-in-out; /* Smooth color transition on hover */
 }
-
-/* Hover effect for highlighted text */
-.highlight-text:hover {
-    color: var(--accent2); /* Change to dark orange on hover */
-}
-
-
-/* Images within newsletter articles */
 .newsletter-article img.newsletter-image {
     max-width: 100%;
     height: auto;
     border-radius: 8px;
     margin: 1.5rem auto;
     display: block;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* --- Tooltip Styles --- */
-.custom-tooltip {
-    position: absolute;
-    background-color: var(--dark-bg); /* Dark background */
-    color: var(--light-text);
-    padding: 10px 15px;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); /* Significant depth */
-    z-index: 1000; /* Ensure it's on top of other content */
-    min-width: 150px;
-    text-align: center;
-    opacity: 0; /* Initially hidden */
-    visibility: hidden; /* For screen readers and proper hiding */
-    transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out; /* Smooth fade in/out */
-    transform: translateY(-10px); /* Slight lift animation */
-    pointer-events: none; /* Allows clicks to pass through when hidden */
-}
-
-.custom-tooltip.visible {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto; /* Enable clicks when visible */
-    transform: translateY(0); /* Return to original position */
-}
-
-.custom-tooltip-text {
-    margin-bottom: 8px; /* Spacing between word and button */
-    font-weight: 500;
-    color: var(--light-text);
-    text-shadow: 0 0 2px var(--accent2); /* Outline for tooltip text */
-}
-
-.tooltip-search-button {
-    background-color: var(--accent1); /* Vibrant orange button */
-    color: var(--light-text);
-    padding: 6px 12px; /* Reduced padding for smaller button */
-    font-size: 0.9rem; /* Smaller font size */
-    border: none;
-    border-radius: 5px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.2s ease, transform 0.1s ease;
-    text-shadow: 0 0 2px var(--accent2); /* Outline for button text */
-}
-
-.tooltip-search-button:hover {
-    background-color: var(--accent2); /* Darker orange on hover */
-    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Darker shadow */
 }
 
 
-/*
- * -----------------------------------------------------------
- * News App Specific Styles
- * Styles for the news application section, including categories,
- * grid layouts, and tabbed navigation.
- * -----------------------------------------------------------
- */
+/* --- News App Specific Styles --- */
 .news-category {
     margin-bottom: 2rem;
 }
-
-/* H3 style for news categories within the app */
 .news-category h3 {
     font-size: 1.5rem;
     font-weight: 600;
     color: var(--accent1);
     margin-bottom: 1rem;
-    border-bottom: 1px solid rgba(var(--dark-red-accent-rgb), 0.3);
+    border-bottom: 1px solid rgba(var(--dark-red-accent-rgb), 0.2); /* Slightly less opaque red border */
     padding-bottom: 0.5rem;
     text-align: center;
 }
-
 .news-links-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 15px;
     margin-top: 1rem;
 }
-
 .news-link-item {
-    background-color: var(--dark-bg);
+    background-color: var(--dark-bg); /* Use darker background for items */
     padding: 15px;
     border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Darker shadow */
     text-align: center;
-    transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease; /* Added box-shadow transition */
-    cursor: pointer; /* Ensure clickable cursor */
+    transition: transform 0.2s ease, background-color 0.2s ease;
 }
-
 .news-link-item:hover {
     transform: translateY(-3px);
-    background-color: rgba(44, 62, 80, 0.8);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Enhanced hover effect */
+    background-color: rgba(13, 13, 15, 0.8); /* Slightly less opaque hover for dark mode */
 }
-
 .news-link-item a {
-    color: var(--light-text);
+    color: var(--light-text); /* Light text on dark item background */
     text-decoration: none;
     font-weight: 600;
     display: block;
-    /* Dark orange outline for white text */
-    text-shadow: 0 0 3px var(--accent2), 0 0 5px var(--accent2);
-}
-
-/* Tabbed Interface Styles for News App */
-.tab-buttons {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 25px;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-.tab-button {
-    background-color: var(--primary-bg);
-    color: var(--light-text);
-    padding: 12px 20px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: 600;
-    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    white-space: nowrap;
-    /* Dark orange outline for white text */
-    text-shadow: 0 0 3px var(--accent2), 0 0 5px var(--accent2);
-}
-
-.tab-button:hover {
-    background-color: var(--dark-bg);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-}
-
-.tab-button.active {
-    background-color: var(--accent1);
-    transform: translateY(-1px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    border-bottom: 3px solid var(--accent2);
-}
-
-.tab-content {
-    animation: fadeIn 0.5s ease-out;
-}
-
-.tab-content.hidden {
-    display: none;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
 }
 
 /* Spinner for loading indicator */
 .spinner {
-  border: 4px solid rgba(0, 0, 0, 0.1);
+  border: 4px solid rgba(255, 255, 255, 0.2); /* Lighter border for dark mode */
   border-left-color: var(--accent1);
   border-radius: 50%;
   width: 30px;
@@ -606,22 +371,67 @@ body {
   100% { transform: rotate(360deg); }
 }
 
-/*
- * -----------------------------------------------------------
- * Responsive Adjustments
- * Media queries for adapting the layout and styles to
- * different screen sizes (mobile first approach).
- * -----------------------------------------------------------
- */
+/* New Infographic Section Styles (adjusted for dark mode) */
+.infographic-section {
+    margin: 3rem auto;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4); /* Darker shadow */
+    background-color: var(--content-bg); /* Use dark content background */
+    border: 2px solid var(--accent1);
+    max-width: 700px;
+    color: var(--dark-text); /* Use dark text color for readability */
+}
+
+.infographic-title {
+    color: var(--accent2);
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    border-bottom: 3px solid var(--accent1);
+    padding-bottom: 0.75rem;
+}
+
+.infographic-item {
+    background-color: rgba(44, 44, 48, 0.9); /* Darker background for infographic items */
+    padding: 1.25rem;
+    border-radius: 8px;
+    margin-bottom: 1.25rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Darker shadow */
+    border: 1px solid var(--primary-bg);
+}
+
+.infographic-item h4 {
+    color: var(--accent1);
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    text-align: center;
+}
+
+.infographic-item ul {
+    list-style: disc;
+    padding-left: 1.5rem;
+}
+
+.infographic-item li {
+    margin-bottom: 0.5rem;
+    line-height: 1.5;
+}
+
+/* Responsive adjustments */
 @media (max-width: 768px) {
     .header h1 { font-size: 2.2rem; }
     .navbar { padding: 0.75rem 0; }
     .navbar a { margin: 0.5rem 0.5rem; font-size: 0.9rem; }
-    .container { padding: 25px 25px; width: 95%; }
+    .container {
+        padding: 25px 25px;
+        width: 80%; /* Adjusted for tablets */
+    }
     .header, .footer { padding-left: 1rem; padding-right: 1rem; }
     .container h2 { font-size: 1.8rem; }
     .news-category h3 { font-size: 1.3rem; }
-
     /* Adjustments for new background elements */
     .moving-bar { height: 6px; }
     .moving-bar-1 { top: 10%; }
@@ -636,27 +446,29 @@ body {
     .rounded-column-3 { width: 80px; height: 80px; top: 55%; right: 15%; }
     .rounded-column-4 { width: 130px; height: 130px; top: 20%; left: 15%; }
 
-    .tab-button {
-        padding: 10px 15px;
-        font-size: 0.9rem;
+    /* Responsive adjustments for infographics */
+    .infographic-section {
+        padding: 1.5rem;
+        margin: 2rem auto;
     }
-
-    /* H1 in newsletter article responsive adjustment */
-    .newsletter-article h1 {
-        font-size: clamp(1.8rem, 7vw, 2.5rem); /* Adjusted font size for smaller screens */
-        padding: 0.4rem 0.8rem;
+    .infographic-title {
+        font-size: 1.8rem;
+    }
+    .infographic-item h4 {
+        font-size: 1.2rem;
     }
 }
-
 @media (max-width: 480px) {
     .header h1 { font-size: 1.8rem; }
     .container h2 { font-size: 1.5rem; }
-    .container { padding: 20px; }
+    .container {
+        padding: 20px;
+        width: 90%; /* Adjusted for mobile */
+    }
     .navbar { flex-direction: column; align-items: center; }
     .navbar a { margin: 0.25rem 0; width: calc(100% - 2rem); }
     .news-category h3 { font-size: 1.1rem; }
     .news-links-grid { grid-template-columns: 1fr; }
-
     /* Further adjustments for new background elements */
     .moving-bar { height: 5px; }
     .moving-bar-vertical { width: 5px; }
@@ -665,13 +477,71 @@ body {
     .rounded-column-3 { width: 60px; height: 60px; }
     .rounded-column-4 { width: 90px; height: 90px; }
 
-    .tab-button {
-        width: 100%;
+    /* Responsive adjustments for infographics */
+    .infographic-section {
+        padding: 1rem;
+        margin: 1.5rem auto;
     }
-
-    /* H1 in newsletter article very small screen adjustment */
-    .newsletter-article h1 {
-        font-size: clamp(1.6rem, 5vw, 2rem); /* Even smaller on very small screens */
-        padding: 0.3rem 0.6rem;
+    .infographic-title {
+        font-size: 1.5rem;
+    }
+    .infographic-item h4 {
+        font-size: 1rem;
+    }
+    .infographic-item ul {
+        padding-left: 1rem;
     }
 }
+
+/* --- Tooltip CSS (Refactored for script.js) --- */
+.custom-tooltip {
+    position: absolute; /* Positioned by JS */
+    background-color: var(--dark-bg); /* Dark background for the tooltip */
+    color: var(--light-text); /* Light text for readability */
+    border-radius: 8px;
+    padding: 10px 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Darker shadow for tooltip */
+    z-index: 1000; /* Ensure it's on top */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    display: flex; /* Use flexbox for content alignment */
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center horizontally */
+    gap: 8px; /* Space between text and button */
+    width: auto; /* Allow width to adjust to content, up to max-width */
+    max-width: 200px; /* Limit tooltip width */
+    text-align: center; /* Center text within tooltip */
+}
+
+.custom-tooltip.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.custom-tooltip-text {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    color: var(--light-text);
+}
+
+.tooltip-search-button {
+    background-color: var(--accent1); /* Use accent color for button */
+    color: var(--dark-bg); /* Dark text on accent button */
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.8rem;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    white-space: nowrap; /* Prevent button text from wrapping */
+}
+
+.tooltip-search-button:hover {
+    background-color: var(--accent2); /* Darker accent on hover */
+    transform: translateY(-1px);
+}
+
+/* No ::after pseudo-element for arrow needed as JS positions it directly and precisely. */
+/* If you still want an arrow, it would need to be added as a separate element in JS or positioned carefully. */
