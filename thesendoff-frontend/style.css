@@ -209,8 +209,8 @@ body {
     padding: 30px 40px;
     border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Darker shadow */
-    max-width: 800px;
-    width: 90%;
+    max-width: 960px; /* Increased max-width for larger screens */
+    width: 60%; /* This ensures 20% margin on each side on larger screens */
     margin-bottom: 30px;
     box-sizing: border-box;
     color: var(--dark-text); /* Use new dark text color for content */
@@ -425,7 +425,10 @@ body {
     .header h1 { font-size: 2.2rem; }
     .navbar { padding: 0.75rem 0; }
     .navbar a { margin: 0.5rem 0.5rem; font-size: 0.9rem; }
-    .container { padding: 25px 25px; width: 95%; }
+    .container {
+        padding: 25px 25px;
+        width: 80%; /* Adjusted for tablets */
+    }
     .header, .footer { padding-left: 1rem; padding-right: 1rem; }
     .container h2 { font-size: 1.8rem; }
     .news-category h3 { font-size: 1.3rem; }
@@ -458,7 +461,10 @@ body {
 @media (max-width: 480px) {
     .header h1 { font-size: 1.8rem; }
     .container h2 { font-size: 1.5rem; }
-    .container { padding: 20px; }
+    .container {
+        padding: 20px;
+        width: 90%; /* Adjusted for mobile */
+    }
     .navbar { flex-direction: column; align-items: center; }
     .navbar a { margin: 0.25rem 0; width: calc(100% - 2rem); }
     .news-category h3 { font-size: 1.1rem; }
