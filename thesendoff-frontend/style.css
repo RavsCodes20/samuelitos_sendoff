@@ -492,3 +492,64 @@ body {
         padding-left: 1rem;
     }
 }
+
+/* --- Tooltip CSS --- */
+/* This assumes a structure like:
+   <div class="tooltip-container">
+       Hover over me
+       <span class="tooltip-text">Tooltip content here</span>
+   </div>
+*/
+.tooltip-container {
+    position: relative;
+    display: inline-block; /* Allows the container to wrap its content */
+    cursor: help; /* Indicates interactivity */
+}
+
+.tooltip-text {
+    visibility: hidden; /* Hidden by default */
+    width: 180px; /* Fixed width for the tooltip */
+    background-color: var(--dark-bg); /* Dark background for the tooltip */
+    color: var(--light-text); /* Light text for readability */
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 10px;
+    position: absolute;
+    z-index: 100; /* Ensure it's above other content */
+    bottom: 125%; /* Position above the text */
+    left: 50%;
+    margin-left: -90px; /* Half of the width to center it */
+    opacity: 0;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4); /* Subtle shadow */
+    font-size: 0.85rem;
+    line-height: 1.3;
+}
+
+/* Tooltip arrow */
+.tooltip-text::after {
+    content: "";
+    position: absolute;
+    top: 100%; /* At the bottom of the tooltip */
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: var(--dark-bg) transparent transparent transparent; /* Arrow pointing down */
+}
+
+/* Show the tooltip text when hovering over the tooltip container */
+.tooltip-container:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Responsive adjustments for tooltips */
+@media (max-width: 480px) {
+    .tooltip-text {
+        width: 140px; /* Smaller width for mobile */
+        margin-left: -70px; /* Recenter for smaller width */
+        font-size: 0.75rem;
+        padding: 6px 8px;
+    }
+}
